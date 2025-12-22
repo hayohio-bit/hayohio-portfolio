@@ -6,6 +6,7 @@ import { ThemeProvider } from './theme/ThemeContext'
 import store from './store/store'
 import App from './App'
 import './index.css'
+import './styles/animate.css'
 
 /**
  * 애플리케이션 진입점
