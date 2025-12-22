@@ -1,0 +1,17 @@
+    {
+    "typescript.preferences.includePackageJsonAutoImports": "off",
+    "typescript.suggest.autoImports": true,
+    "typescript.suggest.paths": true,
+    "javascript.suggest.paths": true,
+    "path-intellisense.mappings": {
+        "@": "${workspaceFolder}/src",
+        "@components": "${workspaceFolder}/src/components",
+        "@pages": "${workspaceFolder}/src/pages",
+        "@hooks": "${workspaceFolder}/src/hooks",
+        "@utils": "${workspaceFolder}/src/utils",
+        "@store": "${workspaceFolder}/src/store"
+    },
+    "emmet.includeLanguages": {
+        "javascript": "javascriptreact"
+    }
+    }

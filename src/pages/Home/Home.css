@@ -1,0 +1,56 @@
+.home-page {
+    width: 100%;
+}
+
+/* Intro Section */
+.home-intro {
+    padding: var(--space-3xl) var(--space-lg);
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border-light);
+}
+
+.home-intro-inner {
+    max-width: var(--container-md);
+    margin: 0 auto;
+    text-align: center;
+}
+
+.home-intro-title {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: var(--font-size-3xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--text-primary);
+    margin: 0 0 var(--space-lg) 0;
+    letter-spacing: -0.02em;
+}
+
+.home-intro-text {
+    font-size: var(--font-size-lg);
+    line-height: var(--leading-relaxed);
+    color: var(--text-secondary);
+    margin: 0;
+    word-break: keep-all;
+}
+
+[data-theme="dark"] .home-intro-text {
+    color: var(--text-tertiary);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .home-intro {
+        padding: var(--space-2xl) var(--space-md);
+    }
+
+    .home-intro-title {
+        font-size: var(--font-size-2xl);
+    }
+
+    .home-intro-text {
+        font-size: var(--font-size-base);
+    }
+
+    .home-intro-text br {
+        display: none;
+    }
+}

@@ -1,0 +1,146 @@
+hayohio-portfolio
+├── index.html
+├── portfolio_presentation.html
+├── public
+│   ├── assets
+│   │   └── images
+│   │       ├── 100.jpg
+│   │       ├── 101-1.png
+│   │       ├── 102-1.jpg
+│   │       ├── 103-1.jpg
+│   │       ├── 104-1.jpg
+│   │       ├── 105-01.jpg
+│   │       ├── 105-02.png
+│   │       ├── 201-01.png
+│   │       ├── 201-02.png
+│   │       ├── 201-03.png
+│   │       ├── 201-04.png
+│   │       ├── 201-05.png
+│   │       ├── 201-06.png
+│   │       ├── 202-01.jpg
+│   │       ├── 202-02.jpg
+│   │       ├── 202-03.jpg
+│   │       ├── 301-01.png
+│   │       ├── 301-02.jpg
+│   │       ├── 301-03-01.png
+│   │       ├── 301-03-02.png
+│   │       ├── 301-03-03.png
+│   │       ├── 401-01.png
+│   │       ├── 402-01.png
+│   │       ├── 501-01.png
+│   │       ├── 502-01.png
+│   │       ├── 503-01.png
+│   │       ├── 504-01.png
+│   │       ├── 505-01.png
+│   │       ├── 506-01.PNG
+│   │       ├── 506-02.PNG
+│   │       ├── 507-01.png
+│   │       ├── 508-01.png
+│   │       └── 601-01.png
+│   ├── css
+│   │   └── animate.css
+│   └── images
+│       ├── 404.svg
+│       ├── Crocodile.jpg
+│       ├── Crocodile.mp4
+│       └── Crocodile.webm
+├── src
+│   ├── App.jsx
+│   ├── assets
+│   │   └── images
+│   │       ├── 100.jpg
+│   │       ├── 101-1.png
+│   │       ├── 102-1.jpg
+│   │       ├── 103-1.jpg
+│   │       ├── 104-1.jpg
+│   │       ├── 105-01.jpg
+│   │       ├── 105-02.png
+│   │       ├── 201-01.png
+│   │       ├── 201-02.png
+│   │       ├── 201-03.png
+│   │       ├── 201-04.png
+│   │       ├── 201-05.png
+│   │       ├── 201-06.png
+│   │       ├── 202-01.jpg
+│   │       ├── 202-02.jpg
+│   │       ├── 202-03.jpg
+│   │       ├── 301-01.png
+│   │       ├── 301-02.jpg
+│   │       ├── 301-03-01.png
+│   │       ├── 301-03-02.png
+│   │       ├── 301-03-03.png
+│   │       ├── 401-01.png
+│   │       ├── 402-01.png
+│   │       ├── 501-01.png
+│   │       ├── 502-01.png
+│   │       ├── 503-01.png
+│   │       ├── 504-01.png
+│   │       ├── 505-01.png
+│   │       ├── 506-01.PNG
+│   │       ├── 506-02.PNG
+│   │       ├── 507-01.png
+│   │       ├── 508-01.png
+│   │       └── 601-01.png
+│   ├── components
+│   │   ├── layout
+│   │   │   ├── Footer.css
+│   │   │   ├── Footer.jsx
+│   │   │   ├── Header
+│   │   │   │   ├── Header.css
+│   │   │   │   └── Header.jsx
+│   │   │   └── MainLayout.jsx
+│   │   ├── portfolio
+│   │   │   ├── PortfolioCard.css
+│   │   │   ├── PortfolioCard.jsx
+│   │   │   ├── PortfolioList.css
+│   │   │   ├── PortfolioList.jsx
+│   │   │   └── WorkSection
+│   │   │       ├── WorkSection.css
+│   │   │       └── WorkSection.jsx
+│   │   └── ui
+│   │       ├── ScrollButtons.css
+│   │       ├── ScrollButtons.jsx
+│   │       └── ScrollToTop.jsx
+│   ├── data
+│   │   ├── portfolioData.json
+│   │   ├── projects.json
+│   │   └── projectUtils.js
+│   ├── hooks
+│   ├── index.css
+│   ├── main.jsx
+│   ├── pages
+│   │   ├── About
+│   │   │   ├── About.css
+│   │   │   └── About.jsx
+│   │   ├── Contact.css
+│   │   ├── Contact.jsx
+│   │   ├── Detail
+│   │   │   ├── Detail.css
+│   │   │   └── Detail.jsx
+│   │   ├── Home
+│   │   │   ├── components
+│   │   │   │   ├── Hero.css
+│   │   │   │   ├── Hero.jsx
+│   │   │   │   ├── HeroPlanet.css
+│   │   │   │   └── HeroPlanet.jsx
+│   │   │   ├── Home.css
+│   │   │   └── Home.jsx
+│   │   ├── NotFound
+│   │   │   ├── NotFound.css
+│   │   │   └── NotFound.jsx
+│   │   ├── Work.css
+│   │   └── Work.jsx
+│   ├── routes
+│   │   └── AppRouter.jsx
+│   ├── store
+│   │   ├── slices
+│   │   │   └── portfolioSlice.js
+│   │   └── store.js
+│   ├── theme
+│   │   ├── getInitialTheme.js
+│   │   ├── index.js
+│   │   ├── ThemeContext.jsx
+│   │   └── useTheme.js
+│   └── utils
+│       └── imageUtils.js
+└── tsconfig.json

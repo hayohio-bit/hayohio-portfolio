@@ -1,0 +1,277 @@
+{
+    "projects": [
+        {
+            "id": 1,
+            "slug": "ethics-newsletter-2022",
+            "title": "윤리경영 뉴스레터",
+            "category": "newsletter",
+            "year": "2022",
+            "period": "2022.01 - 2022.12",
+            "client": "BGF 경영진단팀",
+            "role": "기획 및 디자인",
+            "description": "임직원을 대상으로 한 월간 윤리경영 뉴스레터 디자인",
+            "overview": "월간으로 발행되는 윤리경영 뉴스레터의 전체 디자인을 담당했습니다. 복잡한 윤리경영 개념을 이해하기 쉬운 비주얼과 인포그래픽으로 표현하여 임직원들의 높은 관심도와 참여를 이끌어냈습니다.",
+            "tags": [
+                "Editorial Design",
+                "Communication",
+                "Newsletter"
+            ],
+            "challenges": [
+                "복잡한 윤리경영 개념을 쉽게 전달",
+                "매월 일관된 퀄리티 유지",
+                "다양한 연령대의 임직원 고려"
+            ],
+            "solutions": [
+                "인포그래픽을 활용한 시각화",
+                "템플릿 시스템 구축",
+                "직관적인 아이콘과 일러스트레이션 사용"
+            ],
+            "results": [
+                "평균 열람률 85% 달성",
+                "임직원 만족도 조사 4.5/5.0",
+                "월간 제작 시간 30% 단축"
+            ],
+            "images": [
+                {
+                    "url": "/images/projects/newsletter-01.jpg",
+                    "alt": "윤리경영 뉴스레터 커버",
+                    "caption": "2022년 1월호 커버 디자인"
+                },
+                {
+                    "url": "/images/projects/newsletter-02.jpg",
+                    "alt": "뉴스레터 내지",
+                    "caption": "인포그래픽을 활용한 내지 디자인"
+                }
+            ],
+            "featured": true,
+            "order": 1
+        },
+        {
+            "id": 2,
+            "slug": "anti-corruption-campaign-2021",
+            "title": "부정청탁 금지 캠페인",
+            "category": "campaign",
+            "year": "2021",
+            "period": "2021.09 - 2021.12",
+            "client": "BGF 경영진단팀",
+            "role": "캠페인 기획 및 비주얼 디자인",
+            "description": "청렴문화 확산을 위한 사내 캠페인 비주얼 디자인",
+            "overview": "부정청탁 금지법 인식 제고를 위한 사내 캠페인의 전체 비주얼을 담당했습니다. 포스터, 배너, 이메일 서명 등 다양한 매체로 전개하여 임직원들의 자발적인 참여를 유도했습니다.",
+            "tags": [
+                "Campaign",
+                "Visual Identity",
+                "Communication"
+            ],
+            "challenges": [
+                "딱딱한 주제를 친근하게 전달",
+                "다양한 매체에서 일관성 유지",
+                "임직원 참여 유도"
+            ],
+            "solutions": [
+                "친근한 일러스트레이션 스타일 개발",
+                "통합 비주얼 가이드라인 제작",
+                "인터랙티브 요소 추가"
+            ],
+            "results": [
+                "캠페인 인지도 92% 달성",
+                "서약서 참여율 95%",
+                "사내 윤리경영 인식 개선"
+            ],
+            "images": [
+                {
+                    "url": "/images/projects/campaign-01.jpg",
+                    "alt": "캠페인 메인 포스터",
+                    "caption": "부정청탁 금지 캠페인 메인 포스터"
+                }
+            ],
+            "featured": true,
+            "order": 2
+        },
+        {
+            "id": 3,
+            "slug": "b2b-sales-brochure-2023",
+            "title": "B2B 영업 리플렛",
+            "category": "brochure",
+            "year": "2023",
+            "period": "2023.03 - 2023.06",
+            "client": "BGF리테일 Project개발팀",
+            "role": "디자인 및 제작 관리",
+            "description": "신규 거래처 대상 상품 소개 리플렛",
+            "overview": "B2B 영업을 위한 상품 소개 리플렛을 디자인하고 제작 전 과정을 관리했습니다. 상품의 특징을 효과적으로 전달하면서도 전문적인 이미지를 유지하는 것이 핵심이었습니다.",
+            "tags": [
+                "Brochure",
+                "B2B Marketing",
+                "Print Design"
+            ],
+            "challenges": [
+                "복잡한 상품 정보의 간결한 정리",
+                "B2B 타겟에 맞는 전문적인 디자인",
+                "제작 일정 및 품질 관리"
+            ],
+            "solutions": [
+                "정보 위계를 고려한 레이아웃",
+                "고급스러운 컬러 팔레트 적용",
+                "제작사와의 긴밀한 커뮤니케이션"
+            ],
+            "results": [
+                "거래처 계약 성공률 향상",
+                "영업팀 만족도 상승",
+                "리플렛 재제작 요청 증가"
+            ],
+            "images": [
+                {
+                    "url": "/images/projects/brochure-01.jpg",
+                    "alt": "B2B 리플렛 표지",
+                    "caption": "B2B 영업 리플렛 표지"
+                }
+            ],
+            "featured": false,
+            "order": 3
+        },
+        {
+            "id": 4,
+            "slug": "product-display-2023",
+            "title": "상품설명회 디스플레이",
+            "category": "collateral",
+            "year": "2023",
+            "period": "2023.07 - 2023.09",
+            "client": "BGF리테일 Project개발팀",
+            "role": "기획 및 제작 관리",
+            "description": "아크릴 디스플레이 기획 및 제작 관리",
+            "overview": "상품설명회에서 사용할 아크릴 디스플레이를 기획부터 실물 제작까지 전 과정을 담당했습니다. 디자인뿐만 아니라 외부 제작사와의 커뮤니케이션, 품질 관리까지 수행했습니다.",
+            "tags": [
+                "Display",
+                "Product Marketing",
+                "3D Design"
+            ],
+            "challenges": [
+                "실물 제작 시 디자인 구현 가능성",
+                "제작 비용과 품질의 균형",
+                "짧은 제작 일정"
+            ],
+            "solutions": [
+                "제작사와 사전 협의 및 샘플 제작",
+                "비용 효율적인 소재 선택",
+                "단계별 품질 체크 프로세스 구축"
+            ],
+            "results": [
+                "설명회에서 호평",
+                "디스플레이 디자인 표준화",
+                "재사용 가능한 템플릿 구축"
+            ],
+            "images": [
+                {
+                    "url": "/images/projects/display-01.jpg",
+                    "alt": "아크릴 디스플레이",
+                    "caption": "상품설명회용 아크릴 디스플레이"
+                }
+            ],
+            "featured": false,
+            "order": 4
+        },
+        {
+            "id": 5,
+            "slug": "ethics-week-poster-2020",
+            "title": "윤리경영 주간 포스터",
+            "category": "campaign",
+            "year": "2020",
+            "period": "2020.10",
+            "client": "BGF 경영진단팀",
+            "role": "포스터 디자인",
+            "description": "윤리경영 주간 행사 홍보 포스터 시리즈",
+            "overview": "연례 윤리경영 주간 행사를 위한 포스터 시리즈를 디자인했습니다. 일관된 비주얼 아이덴티티를 유지하면서도 각 포스터마다 차별화된 메시지를 전달했습니다.",
+            "tags": [
+                "Poster",
+                "Visual Design",
+                "Campaign"
+            ],
+            "challenges": [
+                "시리즈로서의 일관성 유지",
+                "각 포스터의 개성 부여",
+                "임팩트 있는 메시지 전달"
+            ],
+            "solutions": [
+                "통일된 컬러 시스템 적용",
+                "타이포그래피 중심 디자인",
+                "강렬한 비주얼 메타포 사용"
+            ],
+            "results": [
+                "행사 참여율 증가",
+                "포스터 디자인 스타일 가이드 확립",
+                "차년도 행사에도 재사용"
+            ],
+            "images": [
+                {
+                    "url": "/images/projects/poster-01.jpg",
+                    "alt": "윤리경영 주간 포스터",
+                    "caption": "윤리경영 주간 홍보 포스터"
+                }
+            ],
+            "featured": false,
+            "order": 5
+        },
+        {
+            "id": 6,
+            "slug": "new-product-promo-2024",
+            "title": "신상품 프로모션 자료",
+            "category": "collateral",
+            "year": "2024",
+            "period": "2024.01 - 2024.03",
+            "client": "BGF리테일 Project개발팀",
+            "role": "마케팅 자료 디자인",
+            "description": "신상품 출시 프로모션용 마케팅 자료",
+            "overview": "신상품 출시에 맞춰 다양한 마케팅 자료를 디자인했습니다. 온라인과 오프라인 매체를 모두 고려하여 통합적인 프로모션 비주얼을 제작했습니다.",
+            "tags": [
+                "Marketing",
+                "Promotion",
+                "Multi-channel"
+            ],
+            "challenges": [
+                "온/오프라인 매체 통합",
+                "짧은 제작 기간",
+                "브랜드 가이드라인 준수"
+            ],
+            "solutions": [
+                "마스터 템플릿 제작",
+                "효율적인 워크플로우 구축",
+                "브랜드 요소를 활용한 디자인"
+            ],
+            "results": [
+                "성공적인 신상품 출시",
+                "프로모션 반응률 향상",
+                "재사용 가능한 템플릿 확보"
+            ],
+            "images": [
+                {
+                    "url": "/images/projects/promo-01.jpg",
+                    "alt": "신상품 프로모션",
+                    "caption": "신상품 프로모션 자료"
+                }
+            ],
+            "featured": true,
+            "order": 6
+        }
+    ],
+    "categories": [
+        {
+            "id": "newsletter",
+            "label": "뉴스레터",
+            "description": "정기 발행 뉴스레터 디자인"
+        },
+        {
+            "id": "campaign",
+            "label": "캠페인",
+            "description": "사내 캠페인 비주얼 디자인"
+        },
+        {
+            "id": "brochure",
+            "label": "B2B 리플렛",
+            "description": "영업용 리플렛 및 제안서"
+        },
+        {
+            "id": "collateral",
+            "label": "홍보물",
+            "description": "마케팅 및 홍보 자료"
+        }
+    ]
+}
