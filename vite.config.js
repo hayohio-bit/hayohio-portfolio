@@ -21,6 +21,6 @@ export default defineConfig({
     },
   },
   // ✅ GitHub Pages (project page)용 base 설정
-  base: '/hayohio-portfolio/',
-  //base: '/',
+  //base: '/hayohio-portfolio/',
+  base: '/',
 })
