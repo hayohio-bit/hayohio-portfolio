@@ -19,7 +19,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
       {/* GitHub Pages용 basename */}
-      <BrowserRouter basename={import.meta.env.BASE_URL}>
+      <BrowserRouter basename={`${import.meta.env.VITE_PUBLIC_URL}`}>
         <ThemeProvider>
           <App />
         </ThemeProvider>
