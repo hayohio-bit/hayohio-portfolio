@@ -1,7 +1,5 @@
 import portfolioData from './portfolioData.json'
 
-
-
 // 🔧 이미지 경로 수정 헬퍼 함수
 const fixPath = (path) => {
     if (!path) return path;
