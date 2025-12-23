@@ -1,65 +1,8 @@
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fraunces:wght@600;700;800&family=Noto+Sans+KR:wght@300;400;500;600;700;800&display=swap');
 
-/* ===== LIGHT MODE THEME ===== */
-:root[data-theme="light"] {
-  /* Background & Surface Colors */
-  --bg-primary: #FAFAF9;
-  /* Warm off-white background */
-  --bg-secondary: #F8F7F5;
-  /* Subtle cream tone */
-  --surface: #FFFFFF;
-  /* Pure white cards/surfaces */
-  --surface-elevated: #FFFFFF;
-  /* Elevated surfaces */
-
-  /* Text Colors */
-  --text-primary: #0F172A;
-  /* Deep slate for headings */
-  --text-secondary: #334155;
-  /* Medium slate for body */
-  --text-tertiary: #64748B;
-  /* Light slate for muted text */
-  --text-inverse: #F8FAFC;
-  /* Light text on dark backgrounds */
-
-  /* Accent Colors */
-  --accent-primary: #06B6D4;
-  /* Vibrant cyan */
-  --accent-primary-light: #22D3EE;
-  /* Light cyan */
-  --accent-primary-dark: #0891B2;
-  /* Dark cyan */
-  --accent-secondary: #F59E0B;
-  /* Warm amber */
-  --accent-success: #10B981;
-  /* Emerald green */
-  --accent-warning: #F59E0B;
-  /* Amber */
-  --accent-danger: #EF4444;
-  /* Red */
-
-  /* Border Colors */
-  --border-light: rgba(15, 23, 42, 0.06);
-  --border-medium: rgba(15, 23, 42, 0.12);
-  --border-strong: rgba(15, 23, 42, 0.2);
-
-  /* Shadow Definitions */
-  --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.04);
-  --shadow-md: 0 4px 16px rgba(15, 23, 42, 0.08);
-  --shadow-lg: 0 12px 32px rgba(15, 23, 42, 0.12);
-  --shadow-xl: 0 20px 48px rgba(15, 23, 42, 0.16);
-
-  /* Gradient Definitions */
-  --gradient-primary: linear-gradient(135deg, #06B6D4 0%, #0EA5E9 50%, #3B82F6 100%);
-  --gradient-secondary: linear-gradient(135deg, #F59E0B 0%, #F97316 100%);
-  --gradient-accent: linear-gradient(135deg, #10B981 0%, #059669 100%);
-
-  color-scheme: light;
-}
-
-/* ===== DARK MODE THEME ===== */
-:root[data-theme="dark"] {
+/* ===== BASE THEME (DEFAULT: DARK) ===== */
+:root {
   /* Background & Surface Colors */
   --bg-primary: #0F172A;
   /* Rich dark slate */
@@ -112,6 +55,54 @@
   --gradient-secondary: linear-gradient(135deg, #FBBF24 0%, #FB923C 100%);
   --gradient-accent: linear-gradient(135deg, #34D399 0%, #10B981 100%);
 
+  color-scheme: dark;
+}
+
+/* ===== LIGHT MODE THEME OVERRIDE ===== */
+:root[data-theme="light"] {
+  /* Background & Surface Colors */
+  --bg-primary: #FAFAF9;
+  --bg-secondary: #F8F7F5;
+  --surface: #FFFFFF;
+  --surface-elevated: #FFFFFF;
+
+  /* Text Colors */
+  --text-primary: #0F172A;
+  --text-secondary: #334155;
+  --text-tertiary: #64748B;
+  --text-inverse: #F8FAFC;
+
+  /* Accent Colors */
+  --accent-primary: #06B6D4;
+  --accent-primary-light: #22D3EE;
+  --accent-primary-dark: #0891B2;
+  --accent-secondary: #F59E0B;
+  --accent-success: #10B981;
+  --accent-warning: #F59E0B;
+  --accent-danger: #EF4444;
+
+  /* Border Colors */
+  --border-light: rgba(15, 23, 42, 0.06);
+  --border-medium: rgba(15, 23, 42, 0.12);
+  --border-strong: rgba(15, 23, 42, 0.2);
+
+  /* Shadow Definitions */
+  --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.04);
+  --shadow-md: 0 4px 16px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 12px 32px rgba(15, 23, 42, 0.12);
+  --shadow-xl: 0 20px 48px rgba(15, 23, 42, 0.16);
+
+  /* Gradient Definitions */
+  --gradient-primary: linear-gradient(135deg, #06B6D4 0%, #0EA5E9 50%, #3B82F6 100%);
+  --gradient-secondary: linear-gradient(135deg, #F59E0B 0%, #F97316 100%);
+  --gradient-accent: linear-gradient(135deg, #10B981 0%, #059669 100%);
+
+  color-scheme: light;
+}
+
+/* ===== DARK MODE THEME OVERRIDE (Explicit) ===== */
+:root[data-theme="dark"] {
+  /* Inherits from :root by default, but keeping it for explicit toggle consistency */
   color-scheme: dark;
 }
 

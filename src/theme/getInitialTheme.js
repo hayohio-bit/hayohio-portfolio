@@ -1,20 +1,20 @@
-    export function getInitialTheme() {
+export function getInitialTheme() {
     if (typeof window === 'undefined') {
-        return 'light';
+        return 'dark';
     }
 
     try {
         const saved = window.localStorage.getItem('theme');
         if (saved === 'light' || saved === 'dark') {
-        return saved;
+            return saved;
         }
     } catch {
         // localStorage 접근 실패 시 무시
     }
 
-    const prefersDark =
+    const prefersLight =
         window.matchMedia &&
-        window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
-    return prefersDark ? 'dark' : 'light';
-    }
+        window.matchMedia('(prefers-color-scheme: light)').matches;
+
+    return prefersLight ? 'light' : 'dark';
+}
