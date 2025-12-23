@@ -1,3 +1,4 @@
+import './index.css'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { Provider } from 'react-redux'
@@ -5,7 +6,6 @@ import { BrowserRouter } from 'react-router-dom'
 import { ThemeProvider } from './theme/ThemeContext'
 import store from './store/store'
 import App from './App'
-import './index.css'
 const BASE_URL = import.meta.env.BASE_URL;
 
 /**

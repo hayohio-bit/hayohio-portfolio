@@ -1,6 +1,5 @@
-    // HeroPlanet.jsx - 수정된 버전
-    import React, { useEffect, useRef, useState } from 'react';
-    import './HeroPlanet.css';
+import './HeroPlanet.css';
+import React, { useEffect, useRef, useState } from 'react';
 
     const BADGECONFIG = [
     {

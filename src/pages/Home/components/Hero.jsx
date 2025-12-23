@@ -1,5 +1,5 @@
-import React from "react";
 import "./Hero.css";
+import React from "react";
 import HeroPlanet from "./HeroPlanet";
 
 export default function Hero() {

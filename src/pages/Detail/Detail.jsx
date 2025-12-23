@@ -1,7 +1,7 @@
+import './Detail.css';
 import React, { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { getProjectById } from '../../data/projectUtils';
-import './Detail.css';
 /**
  * 📄 포트폴리오 상세 페이지
  * - URL 파라미터(id)로 프로젝트 조회

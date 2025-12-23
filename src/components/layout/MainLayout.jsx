@@ -1,8 +1,8 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
+import ScrollToTop from '../../components/ui/ScrollToTop'
 import Header from './Header/Header'
 import Footer from './Footer'
-import ScrollToTop from '../../components/ui/ScrollToTop'
 
 export default function MainLayout() {
     return (

@@ -1,6 +1,6 @@
+import './Header.css';
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import './Header.css';
 import { useTheme } from '@theme/useTheme';
 
 const GITHUB_URL = 'https://github.com/hayohio-bit';

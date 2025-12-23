@@ -1,9 +1,9 @@
-    import React, { useMemo, useCallback } from 'react';
-    import { useSelector } from 'react-redux';
-    import { Link } from 'react-router-dom';
-    import { getFeaturedProjects, getProjectById } from '../../../data/projectUtils';
-    import { getImageUrl } from '@utils/imageUtils';
-    import './WorkSection.css';
+import './WorkSection.css';
+import React, { useMemo, useCallback } from 'react';
+import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { getFeaturedProjects, getProjectById } from '../../../data/projectUtils';
+import { getImageUrl } from '@utils/imageUtils';
 
     /**
      * WorkSection - 포트폴리오 대표 작업 섹션 (완전 최적화 버전)
