@@ -2,15 +2,12 @@ import portfolioData from './portfolioData.json'
 
 // 🔧 이미지 경로 수정 헬퍼 함수
 const fixPath = (path) => {
-    if (!path) return path;
+    if (!path) return '';
     if (path.startsWith('http')) return path;
-    // BASE_URL이 있으면 적용 (/로 시작하는 경로는 앞의 /제거 후 결합)
-    const baseUrl = import.meta.env.BASE_URL || '/';
-    const cleanPath = path.startsWith('/') ? path.slice(1) : path;
 
-    return baseUrl.endsWith('/')
-        ? `${baseUrl}${cleanPath}`
-        : `${baseUrl}/${cleanPath}`;
+    // BASE_URL은 컴포넌트 레벨에서 getImageUrl을 통해 붙이도록 변경
+    // 여기서는 데이터의 순수 경로만 유지 (앞의 /는 제거)
+    return path.startsWith('/') ? path.slice(1) : path;
 };
 
 export const getAllProjects = () => {
@@ -68,4 +65,3 @@ export const getProjectById = (id) => {
         thumbnail: project.thumbnail || project.images[0] || fixPath('/assets/images/default-placeholder.jpg')
     };
 };
-

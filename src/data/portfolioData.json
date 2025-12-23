@@ -1,16 +1,23 @@
 {
   "portfolios": [
     {
-      "id": "100-ref",
+      "id": "100",
       "title": "윤리레터 사보 소개 (참고)",
       "category": "newsletter",
       "date": "2021-07-26",
       "year": 2021,
       "description": "사보 소개 뉴스레터 (참고용)",
-      "thumbnail": "/assets/images/100.jpg",
-      "images": ["/assets/images/100.jpg"],
-      "tools": ["Adobe InDesign", "Photoshop"],
-      "tags": ["참고"],
+      "thumbnail": "100.jpg",
+      "images": [
+        "100.jpg"
+      ],
+      "tools": [
+        "Adobe InDesign",
+        "Photoshop"
+      ],
+      "tags": [
+        "참고"
+      ],
       "isReference": true,
       "status": "reference",
       "client": "사내 윤리경영팀",
@@ -37,10 +44,16 @@
       "date": "2021-04-30",
       "year": 2021,
       "description": "직장 내 절도 관련 뉴스레터",
-      "thumbnail": "/assets/images/101-1.png",
-      "images": ["/assets/images/101-1.png"],
-      "tools": ["Photoshop"],
-      "tags": ["뉴스레터"],
+      "thumbnail": "101-1.png",
+      "images": [
+        "101-1.png"
+      ],
+      "tools": [
+        "Photoshop"
+      ],
+      "tags": [
+        "뉴스레터"
+      ],
       "status": "published",
       "client": "사내 윤리경영팀",
       "role": "비주얼 디자인 및 콘텐츠 편집",
@@ -66,10 +79,16 @@
       "date": "2021-06-30",
       "year": 2021,
       "description": "부당한 업무지시 금지 뉴스레터",
-      "thumbnail": "/assets/images/102-1.jpg",
-      "images": ["/assets/images/102-1.jpg"],
-      "tools": ["Photoshop"],
-      "tags": ["뉴스레터"],
+      "thumbnail": "102-1.jpg",
+      "images": [
+        "102-1.jpg"
+      ],
+      "tools": [
+        "Photoshop"
+      ],
+      "tags": [
+        "뉴스레터"
+      ],
       "status": "published",
       "client": "사내 윤리경영팀",
       "role": "그래픽 디자인 및 인포그래픽 제작",
@@ -95,10 +114,17 @@
       "date": "2021-10-29",
       "year": 2021,
       "description": "문서 위변조 금지 뉴스레터",
-      "thumbnail": "/assets/images/103-1.jpg",
-      "images": ["/assets/images/103-1.jpg"],
-      "tools": ["Photoshop"],
-      "tags": ["뉴스레터", "법률"],
+      "thumbnail": "103-1.jpg",
+      "images": [
+        "103-1.jpg"
+      ],
+      "tools": [
+        "Photoshop"
+      ],
+      "tags": [
+        "뉴스레터",
+        "법률"
+      ],
       "status": "published",
       "client": "사내 윤리경영팀 & 법무팀",
       "role": "법률 정보 시각화 디자인",
@@ -124,10 +150,16 @@
       "date": "2021-12-21",
       "year": 2021,
       "description": "3분윤리 총정리 뉴스레터",
-      "thumbnail": "/assets/images/104-1.jpg",
-      "images": ["/assets/images/104-1.jpg"],
-      "tools": ["Photoshop"],
-      "tags": ["뉴스레터"],
+      "thumbnail": "104-1.jpg",
+      "images": [
+        "104-1.jpg"
+      ],
+      "tools": [
+        "Photoshop"
+      ],
+      "tags": [
+        "뉴스레터"
+      ],
       "status": "published",
       "client": "사내 윤리경영팀",
       "role": "종합 인포그래픽 디자인",
@@ -153,10 +185,18 @@
       "date": "2022-02-07",
       "year": 2022,
       "description": "금품 수수 신고 규정 + 이벤트 뉴스레터",
-      "thumbnail": "/assets/images/105-01.jpg",
-      "images": ["/assets/images/105-01.jpg", "/assets/images/105-02.png"],
-      "tools": ["Photoshop"],
-      "tags": ["뉴스레터", "이벤트"],
+      "thumbnail": "105-01.jpg",
+      "images": [
+        "105-01.jpg",
+        "105-02.png"
+      ],
+      "tools": [
+        "Photoshop"
+      ],
+      "tags": [
+        "뉴스레터",
+        "이벤트"
+      ],
       "status": "published",
       "client": "사내 윤리경영팀",
       "role": "캠페인 디자인 및 이벤트 배너 제작",
@@ -182,17 +222,22 @@
       "date": "2021-09-01",
       "year": 2021,
       "description": "윤리경영 게시판 활성화 전략 제안서 (6페이지)",
-      "thumbnail": "/assets/images/201-01.png",
+      "thumbnail": "201-01.png",
       "images": [
-        "/assets/images/201-01.png",
-        "/assets/images/201-02.png",
-        "/assets/images/201-03.png",
-        "/assets/images/201-04.png",
-        "/assets/images/201-05.png",
-        "/assets/images/201-06.png"
+        "201-01.png",
+        "201-02.png",
+        "201-03.png",
+        "201-04.png",
+        "201-05.png",
+        "201-06.png"
       ],
-      "tools": ["Illustrator"],
-      "tags": ["전략기획", "캠페인"],
+      "tools": [
+        "Illustrator"
+      ],
+      "tags": [
+        "전략기획",
+        "캠페인"
+      ],
       "status": "published",
       "client": "윤리경영 담당 임원진",
       "role": "기획 및 프레젠테이션 디자인",
@@ -219,14 +264,19 @@
       "date": "2021-08-19",
       "year": 2021,
       "description": "윤리경영 캠페인 포스터 및 뉴스레터 연계",
-      "thumbnail": "/assets/images/202-01.jpg",
+      "thumbnail": "202-01.jpg",
       "images": [
-        "/assets/images/202-01.jpg",
-        "/assets/images/202-02.jpg",
-        "/assets/images/202-03.jpg"
+        "202-01.jpg",
+        "202-02.jpg",
+        "202-03.jpg"
       ],
-      "tools": ["Illustrator"],
-      "tags": ["캠페인", "포스터"],
+      "tools": [
+        "Illustrator"
+      ],
+      "tags": [
+        "캠페인",
+        "포스터"
+      ],
       "status": "published",
       "client": "사내 윤리경영팀",
       "role": "통합 캠페인 아트디렉션",
@@ -253,16 +303,23 @@
       "date": "2024-07-11",
       "year": 2024,
       "description": "보드, 아크릴 실물제작 + 제작양식",
-      "thumbnail": "/assets/images/301-01.png",
+      "thumbnail": "301-01.png",
       "images": [
-        "/assets/images/301-01.png",
-        "/assets/images/301-02.jpg",
-        "/assets/images/301-03-01.png",
-        "/assets/images/301-03-02.png",
-        "/assets/images/301-03-03.png"
+        "301-01.png",
+        "301-02.jpg",
+        "301-03-01.png",
+        "301-03-02.png",
+        "301-03-03.png"
       ],
-      "tools": ["Illustrator", "PowerPoint", "Excel"],
-      "tags": ["B2B", "실물제작"],
+      "tools": [
+        "Illustrator",
+        "PowerPoint",
+        "Excel"
+      ],
+      "tags": [
+        "B2B",
+        "실물제작"
+      ],
       "status": "published",
       "client": "B2B 영업팀",
       "role": "전시물 디자인 및 제작 총괄",
@@ -290,10 +347,17 @@
       "date": "2024-01-25",
       "year": 2024,
       "description": "B2B 리플릿 제작",
-      "thumbnail": "/assets/images/401-01.png",
-      "images": ["/assets/images/401-01.png"],
-      "tools": ["Illustrator", "InDesign"],
-      "tags": ["B2B"],
+      "thumbnail": "401-01.png",
+      "images": [
+        "401-01.png"
+      ],
+      "tools": [
+        "Illustrator",
+        "InDesign"
+      ],
+      "tags": [
+        "B2B"
+      ],
       "status": "published",
       "client": "B2B 마케팅팀",
       "role": "리플릿 디자인 및 편집",
@@ -319,10 +383,17 @@
       "date": "2024-04-09",
       "year": 2024,
       "description": "B2B 리플릿 제작",
-      "thumbnail": "/assets/images/402-01.png",
-      "images": ["/assets/images/402-01.png"],
-      "tools": ["Illustrator", "InDesign"],
-      "tags": ["B2B"],
+      "thumbnail": "402-01.png",
+      "images": [
+        "402-01.png"
+      ],
+      "tools": [
+        "Illustrator",
+        "InDesign"
+      ],
+      "tags": [
+        "B2B"
+      ],
       "status": "published",
       "client": "B2B 마케팅팀",
       "role": "리플릿 디자인 및 편집",
@@ -348,10 +419,16 @@
       "date": "2024-01-24",
       "year": 2024,
       "description": "B2B 상품시연회 홍보물",
-      "thumbnail": "/assets/images/501-01.png",
-      "images": ["/assets/images/501-01.png"],
-      "tools": ["Illustrator"],
-      "tags": ["B2B"],
+      "thumbnail": "501-01.png",
+      "images": [
+        "501-01.png"
+      ],
+      "tools": [
+        "Illustrator"
+      ],
+      "tags": [
+        "B2B"
+      ],
       "status": "published",
       "client": "제품 브랜드팀",
       "role": "제품 홍보 디자인",
@@ -377,10 +454,16 @@
       "date": "2024-02-26",
       "year": 2024,
       "description": "B2B 상품시연회 홍보물",
-      "thumbnail": "/assets/images/502-01.png",
-      "images": ["/assets/images/502-01.png"],
-      "tools": ["Illustrator"],
-      "tags": ["B2B"],
+      "thumbnail": "502-01.png",
+      "images": [
+        "502-01.png"
+      ],
+      "tools": [
+        "Illustrator"
+      ],
+      "tags": [
+        "B2B"
+      ],
       "status": "published",
       "client": "제품 브랜드팀",
       "role": "제품 홍보 디자인",
@@ -406,10 +489,16 @@
       "date": "2024-02-26",
       "year": 2024,
       "description": "B2B 상품시연회 홍보물",
-      "thumbnail": "/assets/images/503-01.png",
-      "images": ["/assets/images/503-01.png"],
-      "tools": ["Illustrator"],
-      "tags": ["B2B"],
+      "thumbnail": "503-01.png",
+      "images": [
+        "503-01.png"
+      ],
+      "tools": [
+        "Illustrator"
+      ],
+      "tags": [
+        "B2B"
+      ],
       "status": "published",
       "client": "제품 브랜드팀",
       "role": "제품 홍보 디자인",
@@ -435,10 +524,16 @@
       "date": "2024-11-08",
       "year": 2024,
       "description": "B2B 상품시연회 홍보물",
-      "thumbnail": "/assets/images/504-01.png",
-      "images": ["/assets/images/504-01.png"],
-      "tools": ["Illustrator"],
-      "tags": ["B2B"],
+      "thumbnail": "504-01.png",
+      "images": [
+        "504-01.png"
+      ],
+      "tools": [
+        "Illustrator"
+      ],
+      "tags": [
+        "B2B"
+      ],
       "status": "published",
       "client": "제품 브랜드팀",
       "role": "제품 홍보 디자인",
@@ -464,10 +559,16 @@
       "date": "2024-07-15",
       "year": 2024,
       "description": "B2B 상품시연회 홍보물",
-      "thumbnail": "/assets/images/505-01.png",
-      "images": ["/assets/images/505-01.png"],
-      "tools": ["Illustrator"],
-      "tags": ["B2B"],
+      "thumbnail": "505-01.png",
+      "images": [
+        "505-01.png"
+      ],
+      "tools": [
+        "Illustrator"
+      ],
+      "tags": [
+        "B2B"
+      ],
       "status": "published",
       "client": "제품 브랜드팀",
       "role": "제품 홍보 디자인",
@@ -493,10 +594,17 @@
       "date": "2024-12-11",
       "year": 2024,
       "description": "타르데마 소금빵 홍보물 (2버전)",
-      "thumbnail": "/assets/images/506-01.PNG",
-      "images": ["/assets/images/506-01.PNG", "/assets/images/506-02.PNG"],
-      "tools": ["Illustrator"],
-      "tags": ["B2B"],
+      "thumbnail": "506-01.png",
+      "images": [
+        "506-01.png",
+        "506-02.png"
+      ],
+      "tools": [
+        "Illustrator"
+      ],
+      "tags": [
+        "B2B"
+      ],
       "status": "published",
       "client": "제품 브랜드팀",
       "role": "제품 홍보 디자인 (A/B 버전)",
@@ -522,10 +630,16 @@
       "date": "2024-09-11",
       "year": 2024,
       "description": "B2B 상품시연회 홍보물",
-      "thumbnail": "/assets/images/507-01.png",
-      "images": ["/assets/images/507-01.png"],
-      "tools": ["Illustrator"],
-      "tags": ["B2B"],
+      "thumbnail": "507-01.png",
+      "images": [
+        "507-01.png"
+      ],
+      "tools": [
+        "Illustrator"
+      ],
+      "tags": [
+        "B2B"
+      ],
       "status": "published",
       "client": "제품 브랜드팀",
       "role": "제품 홍보 디자인",
@@ -551,10 +665,17 @@
       "date": "2024-06-24",
       "year": 2024,
       "description": "휴게소 점포 매출 상승 홍보물",
-      "thumbnail": "/assets/images/508-01.png",
-      "images": ["/assets/images/508-01.png"],
-      "tools": ["Illustrator"],
-      "tags": ["B2B", "휴게소"],
+      "thumbnail": "508-01.png",
+      "images": [
+        "508-01.png"
+      ],
+      "tools": [
+        "Illustrator"
+      ],
+      "tags": [
+        "B2B",
+        "휴게소"
+      ],
       "status": "published",
       "client": "휴게소 영업팀",
       "role": "매장용 홍보 디자인",
@@ -580,10 +701,18 @@
       "date": "2020-05-04",
       "year": 2020,
       "description": "독립영화 홍보 포스터 디자인",
-      "thumbnail": "/assets/images/601-01.png",
-      "images": ["/assets/images/601-01.png"],
-      "tools": ["Photoshop", "Illustrator"],
-      "tags": ["영화포스터", "개인프로젝트"],
+      "thumbnail": "601-01.png",
+      "images": [
+        "601-01.png"
+      ],
+      "tools": [
+        "Photoshop",
+        "Illustrator"
+      ],
+      "tags": [
+        "영화포스터",
+        "개인프로젝트"
+      ],
       "status": "published",
       "client": "독립영화 제작팀",
       "role": "키 비주얼 및 포스터 디자인",

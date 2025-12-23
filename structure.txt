@@ -1,4 +1,6 @@
 react_project_20251217
+├── .env
+├── .gitlab-ci.yml
 ├── index.html
 ├── portfolio_presentation.html
 ├── public
@@ -36,7 +38,8 @@ react_project_20251217
 │   │       ├── 506-02.PNG
 │   │       ├── 507-01.png
 │   │       ├── 508-01.png
-│   │       └── 601-01.png
+│   │       ├── 601-01.png
+│   │       └── 9999.jpg
 │   └── images
 │       └── 404.svg
 ├── src

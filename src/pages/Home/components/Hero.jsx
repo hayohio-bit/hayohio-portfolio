@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./Hero.css";
 import React from "react";
 import HeroPlanet from "./HeroPlanet";
@@ -31,12 +32,12 @@ export default function Hero() {
                     </p>
 
                     <div className="hero-actions">
-                        <a href="/work" className="btn btn-primary">
+                        <Link to="/work" className="btn btn-primary">
                             포트폴리오 보러가기
-                        </a>
-                        <a href="/about" className="btn btn-ghost">
+                        </Link>
+                        <Link to="/about" className="btn btn-ghost">
                             이력 · 소개 살펴보기
-                        </a>
+                        </Link>
                     </div>
                 </div>
 
