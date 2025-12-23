@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
 import './ScrollButtons.css';
+import { useState, useEffect } from 'react';
 
 /**
  * ScrollButtons 컴포넌트

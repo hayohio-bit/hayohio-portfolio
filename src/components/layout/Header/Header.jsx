@@ -1,7 +1,7 @@
 import './Header.css';
-import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useTheme } from '@theme/useTheme';
+import React from 'react';
 
 const GITHUB_URL = 'https://github.com/hayohio-bit';
 const EMAIL = 'mailto:hayohio@gmail.com';
