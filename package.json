@@ -11,7 +11,7 @@
     "preview": "vite preview",
     "tree": "node tree.js",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.11.1",
