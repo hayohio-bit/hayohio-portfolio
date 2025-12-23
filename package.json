@@ -1,6 +1,6 @@
 {
-  "homepage": "https://github.com/hayohio-bit/hayohio-portfolio.git",
   "name": "hayohio-portfolio",
+  "homepage": "https://hayohio-bit.github.io/hayohio-portfolio",
   "private": true,
   "version": "0.0.1",
   "type": "module",
@@ -11,7 +11,7 @@
     "preview": "vite preview",
     "tree": "node tree.js",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.11.1",

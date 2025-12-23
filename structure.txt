@@ -1,4 +1,4 @@
-hayohio-portfolio
+react_project_20251217
 ├── index.html
 ├── portfolio_presentation.html
 ├── public
@@ -37,50 +37,10 @@ hayohio-portfolio
 │   │       ├── 507-01.png
 │   │       ├── 508-01.png
 │   │       └── 601-01.png
-│   ├── css
-│   │   └── animate.css
 │   └── images
-│       ├── 404.svg
-│       ├── Crocodile.jpg
-│       ├── Crocodile.mp4
-│       └── Crocodile.webm
+│       └── 404.svg
 ├── src
 │   ├── App.jsx
-│   ├── assets
-│   │   └── images
-│   │       ├── 100.jpg
-│   │       ├── 101-1.png
-│   │       ├── 102-1.jpg
-│   │       ├── 103-1.jpg
-│   │       ├── 104-1.jpg
-│   │       ├── 105-01.jpg
-│   │       ├── 105-02.png
-│   │       ├── 201-01.png
-│   │       ├── 201-02.png
-│   │       ├── 201-03.png
-│   │       ├── 201-04.png
-│   │       ├── 201-05.png
-│   │       ├── 201-06.png
-│   │       ├── 202-01.jpg
-│   │       ├── 202-02.jpg
-│   │       ├── 202-03.jpg
-│   │       ├── 301-01.png
-│   │       ├── 301-02.jpg
-│   │       ├── 301-03-01.png
-│   │       ├── 301-03-02.png
-│   │       ├── 301-03-03.png
-│   │       ├── 401-01.png
-│   │       ├── 402-01.png
-│   │       ├── 501-01.png
-│   │       ├── 502-01.png
-│   │       ├── 503-01.png
-│   │       ├── 504-01.png
-│   │       ├── 505-01.png
-│   │       ├── 506-01.PNG
-│   │       ├── 506-02.PNG
-│   │       ├── 507-01.png
-│   │       ├── 508-01.png
-│   │       └── 601-01.png
 │   ├── components
 │   │   ├── layout
 │   │   │   ├── Footer.css
@@ -136,6 +96,8 @@ hayohio-portfolio
 │   │   ├── slices
 │   │   │   └── portfolioSlice.js
 │   │   └── store.js
+│   ├── styles
+│   │   └── animate.css
 │   ├── theme
 │   │   ├── getInitialTheme.js
 │   │   ├── index.js

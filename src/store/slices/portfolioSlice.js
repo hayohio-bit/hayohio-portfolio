@@ -1,5 +1,5 @@
     import { createSlice } from "@reduxjs/toolkit"
-    import portfolioData from "@data/portfolioData.json" // ✅ JSON import
+    import portfolioData from "@data/portfolioData.json"
 
     // ✅ 초기 상태 - JSON 구조에 맞춤
     const initialState = {

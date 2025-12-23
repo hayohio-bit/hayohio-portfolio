@@ -1,11 +1,13 @@
     export const getImageUrl = (imagePath) => {
     if (typeof imagePath !== 'string' || !imagePath.trim()) {
-        return '/assets/images/100.jpg';
+        return `${import.meta.env.BASE_URL}assets/images/100.jpg`;
     }
     
+    // 이미 절대 경로(/로 시작)면 BASE_URL만 앞에 붙여줌
     if (imagePath.startsWith('/')) {
-        return imagePath;
+        return `${import.meta.env.BASE_URL}${imagePath.slice(1)}`;
     }
-    // public 폴더 이미지 처리
-    return `/assets/images/${imagePath}`;
-    }
+
+    // public/assets/images/ 
+    return `${import.meta.env.BASE_URL}assets/images/${imagePath}`;
+    };

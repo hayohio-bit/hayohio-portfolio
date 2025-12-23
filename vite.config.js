@@ -1,40 +1,26 @@
-  import { defineConfig } from 'vite'
-  import react from '@vitejs/plugin-react'
-  import { resolve } from 'path'
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import path from 'node:path'
 
-  export default defineConfig({
-    plugins: [react()],
-    base: '/hayohio-portfolio/',
-    
-    resolve: {
-      alias: [
-        // ✅ 기본 alias
-        { find: '@', replacement: resolve(__dirname, 'src') },
-        
-        // ✅ 컴포넌트 alias
-        { find: '@components', replacement: resolve(__dirname, 'src/components') },
-        { find: '@components/layout', replacement: resolve(__dirname, 'src/components/layout') },
-        
-        // ✅ 페이지 alias
-        { find: '@pages', replacement: resolve(__dirname, 'src/pages') },
-        
-        // ✅ 데이터/스토어 alias
-        { find: '@data', replacement: resolve(__dirname, 'src/data') },
-        { find: '@store', replacement: resolve(__dirname, 'src/store') },
-        
-        // ✅ 훅/유틸리티 alias
-        { find: '@hooks', replacement: resolve(__dirname, 'src/hooks') },
-        { find: '@utils', replacement: resolve(__dirname, 'src/utils') },
-        { find: '@theme', replacement: resolve(__dirname, 'src/theme') },
-        
-        // ✅ 스타일 alias
-        { find: '@styles', replacement: resolve(__dirname, 'src/styles') }
-      ]
+export default defineConfig({
+  plugins: [react()],
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src'),
+      '@components': path.resolve(__dirname, './src/components'),
+      '@pages': path.resolve(__dirname, './src/pages'),
+      '@routes': path.resolve(__dirname, './src/routes'),
+      '@store': path.resolve(__dirname, './src/store'),
+      '@data': path.resolve(__dirname, './src/data'),
+      '@assets': path.resolve(__dirname, './src/assets'),
+      '@styles': path.resolve(__dirname, './src/styles'),
+      '@utils': path.resolve(__dirname, './src/utils'),
+      '@theme': path.resolve(__dirname, './src/theme'),
+
+
     },
-    
-    build: {
-      outDir: 'dist',
-      sourcemap: true,
-      target: 'es2020'
-    }
-  })
+  },
+  // ✅ GitHub Pages (project page)용 base 설정
+  base: '/hayohio-portfolio/',
+  //base: '/',
+})

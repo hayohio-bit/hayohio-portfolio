@@ -6,7 +6,6 @@ import { ThemeProvider } from './theme/ThemeContext'
 import store from './store/store'
 import App from './App'
 import './index.css'
-import './styles/animate.css'
 
 /**
  * 애플리케이션 진입점
@@ -15,14 +14,16 @@ import './styles/animate.css'
  * 2. BrowserRouter (라우팅)
  * 3. ThemeProvider (테마 관리)
  */
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
-      <BrowserRouter basename="/hayohio-portfolio">
+      {/* GitHub Pages용 basename */}
+      <BrowserRouter basename={import.meta.env.BASE_URL}>
         <ThemeProvider>
           <App />
         </ThemeProvider>
       </BrowserRouter>
     </Provider>
-  </React.StrictMode>,
+  </React.StrictMode>
 )
