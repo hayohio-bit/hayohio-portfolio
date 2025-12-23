@@ -6,7 +6,6 @@ import About from '@pages/About/About'
 import Contact from '@pages/Contact'
 import Detail from '@pages/Detail/Detail'
 import NotFound from '@pages/NotFound/NotFound'
-
 /**
  * 📍 라우트 설정만 담당
  * - BrowserRouter는 main.jsx에서 한 번만 사용

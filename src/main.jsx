@@ -6,6 +6,7 @@ import { ThemeProvider } from './theme/ThemeContext'
 import store from './store/store'
 import App from './App'
 import './index.css'
+const BASE_URL = import.meta.env.BASE_URL;
 
 /**
  * 애플리케이션 진입점
@@ -19,7 +20,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
       {/* GitHub Pages용 basename */}
-      <BrowserRouter basename={import.meta.env.BASE_URL}>
+      <BrowserRouter basename={BASE_URL}>
         <ThemeProvider>
           <App />
         </ThemeProvider>
