@@ -226,6 +226,7 @@
 }
 
 /* Right Column: Sticky Info */
+/* Right Column: Sticky Info (39차: 프리미엄 글래스 디자인 강화) */
 .detail-info-group {
     padding: var(--space-2xl);
     border-radius: var(--radius-xl);
@@ -235,6 +236,28 @@
     position: sticky;
     top: var(--space-4xl);
     margin-bottom: var(--space-4xl);
+    
+    /* 39차: Depth 추가를 위한 강한 글래스모피즘 */
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(30px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.2) inset;
+}
+
+[data-theme="light"] .detail-info-group {
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+}
+
+.detail-section-item {
+    padding-bottom: var(--space-2xl);
+    border-bottom: 1px solid var(--border-light);
+}
+
+.detail-section-item:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
 }
 
 .section-title-small {
@@ -243,7 +266,21 @@
     color: var(--accent-primary);
     text-transform: uppercase;
     letter-spacing: 0.15em;
-    margin-bottom: var(--space-md);
+    margin-bottom: var(--space-lg);
+    
+    /* 39차: 왼쪽 보더 포인트 */
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.section-title-small::before {
+    content: '';
+    display: block;
+    width: 3px;
+    height: 12px;
+    background: var(--accent-primary);
+    border-radius: var(--radius-full);
 }
 
 .section-text {
@@ -256,31 +293,40 @@
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: var(--space-xs);
+    gap: var(--space-md); /* 39차: 간격 확대 */
 }
 
 .section-list li {
     position: relative;
-    padding-left: 20px;
+    padding-left: 24px;
     font-size: var(--font-size-base);
     color: var(--text-secondary);
+    line-height: 1.6;
 }
 
 .section-list li::before {
-    content: '•';
+    content: '';
     position: absolute;
-    left: 0;
-    color: var(--accent-primary);
+    left: 8px; /* 39차: 위치 미세 조정 */
+    top: 10px;
+    width: 6px;
+    height: 1px;
+    background: var(--accent-primary); /* 깔끔한 라인 형태의 불릿 */
 }
 
+/* 39차: 임팩트 섹션 하이라이트 */
 .impact-item {
-    padding-top: var(--space-lg);
-    border-top: 1px solid var(--border-light);
+    background: rgba(var(--accent-primary-rgb), 0.05);
+    border: 1px solid var(--accent-primary-glow);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl) !important; /* 내부 패딩 강제 적용 */
+    box-shadow: 0 0 20px rgba(var(--accent-primary-rgb), 0.1) inset;
+    margin-top: var(--space-lg);
 }
 
 .impact-text {
     font-size: var(--font-size-lg);
-    font-weight: 600;
+    font-weight: 700;
     color: var(--text-primary);
     line-height: 1.5;
 }

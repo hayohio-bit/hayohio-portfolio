@@ -1,9 +1,9 @@
-react_project_20251217
-├── .env
+hayohio-portfolio
 ├── .gitlab-ci.yml
 ├── index.html
 ├── portfolio_presentation.html
 ├── public
+│   ├── 404.html
 │   ├── assets
 │   │   └── images
 │   │       ├── 100.jpg
@@ -39,7 +39,27 @@ react_project_20251217
 │   │       ├── 507-01.png
 │   │       ├── 508-01.png
 │   │       ├── 601-01.png
-│   │       └── 9999.jpg
+│   │       ├── 9999.jpg
+│   │       └── thumb
+│   │           ├── 101-thumb.png
+│   │           ├── 102-thumb.png
+│   │           ├── 103-thumb.png
+│   │           ├── 104-thumb.png
+│   │           ├── 105-thumb.png
+│   │           ├── 201-thumb.png
+│   │           ├── 202-thumb.png
+│   │           ├── 301-thumb.png
+│   │           ├── 401-thumb.png
+│   │           ├── 402-thumb.png
+│   │           ├── 501-thumb.png
+│   │           ├── 502-thumb.png
+│   │           ├── 503-thumb.png
+│   │           ├── 504-thumb.png
+│   │           ├── 505-thumb.png
+│   │           ├── 506-thumb.png
+│   │           ├── 507-thumb.png
+│   │           ├── 508-thumb.png
+│   │           └── 601-thumb.png
 │   └── images
 │       └── 404.svg
 ├── src
@@ -68,7 +88,6 @@ react_project_20251217
 │   │   ├── portfolioData.json
 │   │   ├── projects.json
 │   │   └── projectUtils.js
-│   ├── hooks
 │   ├── index.css
 │   ├── main.jsx
 │   ├── pages
