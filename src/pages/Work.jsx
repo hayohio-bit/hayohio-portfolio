@@ -20,14 +20,15 @@ const Work = React.memo(() => {
   const [searchQuery, setSearchQuery] = useState('');
   const [sortBy, setSortBy] = useState('date-desc');
 
-  // 🔧 필터/검색/정렬 - 완전 안전한 버전
-  const filteredAndSortedData = useMemo(() => {
-    // 데이터 없음 처리
-    if (!Array.isArray(portfolios) || portfolios.length === 0) {
-      return [];
-    }
+    // 🔍 필터/검색/정렬 - 완전 안전한 버전
+    const filteredAndSortedData = useMemo(() => {
+        // 데이터 없음 처리
+        if (!Array.isArray(portfolios) || portfolios.length === 0) {
+            return [];
+        }
 
-    let result = [...portfolios];
+        // ✅ 참고용 프로젝트(isReference) 제외
+        let result = portfolios.filter(item => !item.isReference);
 
     // 1. 카테고리 필터링 (안전한 문자열 비교)
     if (selectedCategory !== 'all') {
@@ -115,7 +116,7 @@ const Work = React.memo(() => {
       <div className="work-header">
         <h1 className="work-title">Portfolio</h1>
         <p className="work-subtitle">
-          총 <strong>{portfolios.length}</strong>개 중{' '}
+          총 <strong>{portfolios.filter(p => !p.isReference).length}</strong>개 중{' '}
           <strong>{filteredAndSortedData.length}</strong>개 결과
         </p>
       </div>

@@ -11,17 +11,8 @@ export default function Hero() {
                     <p className="hero-tagline">Visual Design Work Archive</p>
 
                     <h1 className="hero-title">
-                        <span className="hero-break">
-                            <span className="hero-text-small">조직의 </span>
-                            <span className="hero-highlight">메시지</span>
-                            <span className="hero-text-small">를</span>
-                        </span>
-                        <span className="hero-break">
-                            <span className="hero-highlight">시각 언어</span>
-                            <span className="hero-text-small">로 </span>
-                            <span className="hero-highlight">설계</span>
-                            <span className="hero-text-small">합니다</span>
-                        </span>
+                        <span className="hero-line">조직의 <span className="hero-highlight">메시지</span>를</span>
+                        <span className="hero-line"><span className="hero-highlight">시각 언어</span>로 설계합니다</span>
                     </h1>
 
                     <p className="hero-description">

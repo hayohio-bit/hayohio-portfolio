@@ -35,10 +35,10 @@ const Footer = () => {
                     <div className="footer-section">
                         <h4 className="footer-heading">Navigation</h4>
                         <ul className="footer-links">
-                            <li><Link to="/" className="footer-link">Home</Link></li>
-                            <li><Link to="/about" className="footer-link">About</Link></li>
-                            <li><Link to="/work" className="footer-link">Work</Link></li>
-                            <li><Link to="/contact" className="footer-link">Contact</Link></li>
+                            <li><Link to="/" className="footer-link" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>Home</Link></li>
+                            <li><Link to="/about" className="footer-link" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>About</Link></li>
+                            <li><Link to="/work" className="footer-link" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>Work</Link></li>
+                            <li><Link to="/contact" className="footer-link" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>Contact</Link></li>
                         </ul>
                     </div>
                 </div>

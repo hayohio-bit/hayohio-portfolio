@@ -14,7 +14,7 @@ function ScrollButtons() {
     useEffect(() => {
         const toggleVisibility = () => {
         // 스크롤 위치가 300px 이상일 때 버튼 표시
-        if (window.pageYOffset > 300) {
+        if (window.scrollY > 300) {
             setIsVisible(true);
         } else {
             setIsVisible(false);

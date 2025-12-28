@@ -7,7 +7,7 @@
       "date": "2021-07-26",
       "year": 2021,
       "description": "사보 소개 뉴스레터 (참고용)",
-      "thumbnail": "100.jpg",
+      "thumbnail": "thumb/100-thumb.png",
       "images": [
         "100.jpg"
       ],
@@ -44,7 +44,7 @@
       "date": "2021-04-30",
       "year": 2021,
       "description": "직장 내 절도 관련 뉴스레터",
-      "thumbnail": "101-1.png",
+      "thumbnail": "thumb/101-thumb.png",
       "images": [
         "101-1.png"
       ],
@@ -79,7 +79,7 @@
       "date": "2021-06-30",
       "year": 2021,
       "description": "부당한 업무지시 금지 뉴스레터",
-      "thumbnail": "102-1.jpg",
+      "thumbnail": "thumb/102-thumb.png",
       "images": [
         "102-1.jpg"
       ],
@@ -114,7 +114,7 @@
       "date": "2021-10-29",
       "year": 2021,
       "description": "문서 위변조 금지 뉴스레터",
-      "thumbnail": "103-1.jpg",
+      "thumbnail": "thumb/103-thumb.png",
       "images": [
         "103-1.jpg"
       ],
@@ -150,7 +150,7 @@
       "date": "2021-12-21",
       "year": 2021,
       "description": "3분윤리 총정리 뉴스레터",
-      "thumbnail": "104-1.jpg",
+      "thumbnail": "thumb/104-thumb.png",
       "images": [
         "104-1.jpg"
       ],
@@ -185,7 +185,7 @@
       "date": "2022-02-07",
       "year": 2022,
       "description": "금품 수수 신고 규정 + 이벤트 뉴스레터",
-      "thumbnail": "105-01.jpg",
+      "thumbnail": "thumb/105-thumb.png",
       "images": [
         "105-01.jpg",
         "105-02.png"
@@ -222,7 +222,7 @@
       "date": "2021-09-01",
       "year": 2021,
       "description": "윤리경영 게시판 활성화 전략 제안서 (6페이지)",
-      "thumbnail": "201-01.png",
+      "thumbnail": "thumb/201-thumb.png",
       "images": [
         "201-01.png",
         "201-02.png",
@@ -264,7 +264,7 @@
       "date": "2021-08-19",
       "year": 2021,
       "description": "윤리경영 캠페인 포스터 및 뉴스레터 연계",
-      "thumbnail": "202-01.jpg",
+      "thumbnail": "thumb/202-thumb.png",
       "images": [
         "202-01.jpg",
         "202-02.jpg",
@@ -303,7 +303,7 @@
       "date": "2024-07-11",
       "year": 2024,
       "description": "보드, 아크릴 실물제작 + 제작양식",
-      "thumbnail": "301-01.png",
+      "thumbnail": "thumb/301-thumb.png",
       "images": [
         "301-01.png",
         "301-02.jpg",
@@ -347,7 +347,7 @@
       "date": "2024-01-25",
       "year": 2024,
       "description": "B2B 리플릿 제작",
-      "thumbnail": "401-01.png",
+      "thumbnail": "thumb/401-thumb.png",
       "images": [
         "401-01.png"
       ],
@@ -383,7 +383,7 @@
       "date": "2024-04-09",
       "year": 2024,
       "description": "B2B 리플릿 제작",
-      "thumbnail": "402-01.png",
+      "thumbnail": "thumb/402-thumb.png",
       "images": [
         "402-01.png"
       ],
@@ -419,7 +419,7 @@
       "date": "2024-01-24",
       "year": 2024,
       "description": "B2B 상품시연회 홍보물",
-      "thumbnail": "501-01.png",
+      "thumbnail": "thumb/501-thumb.png",
       "images": [
         "501-01.png"
       ],
@@ -454,7 +454,7 @@
       "date": "2024-02-26",
       "year": 2024,
       "description": "B2B 상품시연회 홍보물",
-      "thumbnail": "502-01.png",
+      "thumbnail": "thumb/502-thumb.png",
       "images": [
         "502-01.png"
       ],
@@ -489,7 +489,7 @@
       "date": "2024-02-26",
       "year": 2024,
       "description": "B2B 상품시연회 홍보물",
-      "thumbnail": "503-01.png",
+      "thumbnail": "thumb/503-thumb.png",
       "images": [
         "503-01.png"
       ],
@@ -524,7 +524,7 @@
       "date": "2024-11-08",
       "year": 2024,
       "description": "B2B 상품시연회 홍보물",
-      "thumbnail": "504-01.png",
+      "thumbnail": "thumb/504-thumb.png",
       "images": [
         "504-01.png"
       ],
@@ -559,7 +559,7 @@
       "date": "2024-07-15",
       "year": 2024,
       "description": "B2B 상품시연회 홍보물",
-      "thumbnail": "505-01.png",
+      "thumbnail": "thumb/505-thumb.png",
       "images": [
         "505-01.png"
       ],
@@ -594,7 +594,7 @@
       "date": "2024-12-11",
       "year": 2024,
       "description": "타르데마 소금빵 홍보물 (2버전)",
-      "thumbnail": "506-01.png",
+      "thumbnail": "thumb/506-thumb.png",
       "images": [
         "506-01.png",
         "506-02.png"
@@ -630,7 +630,7 @@
       "date": "2024-09-11",
       "year": 2024,
       "description": "B2B 상품시연회 홍보물",
-      "thumbnail": "507-01.png",
+      "thumbnail": "thumb/507-thumb.png",
       "images": [
         "507-01.png"
       ],
@@ -665,7 +665,7 @@
       "date": "2024-06-24",
       "year": 2024,
       "description": "휴게소 점포 매출 상승 홍보물",
-      "thumbnail": "508-01.png",
+      "thumbnail": "thumb/508-thumb.png",
       "images": [
         "508-01.png"
       ],
@@ -701,7 +701,7 @@
       "date": "2020-05-04",
       "year": 2020,
       "description": "독립영화 홍보 포스터 디자인",
-      "thumbnail": "601-01.png",
+      "thumbnail": "thumb/601-thumb.png",
       "images": [
         "601-01.png"
       ],

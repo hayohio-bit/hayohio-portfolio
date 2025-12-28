@@ -1,8 +1,23 @@
 .footer {
-    background: var(--surface);
+    background: var(--bg-primary);
     border-top: 1px solid var(--border-light);
-    padding: var(--space-xl) 0 var(--space-xl);
+    padding: var(--space-2xl) 0 var(--space-lg);
     margin-top: auto;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Subtle background glow for footer */
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 1px;
+    background: var(--gradient-primary);
+    opacity: 0.3;
 }
 
 .footer-container {
@@ -13,39 +28,43 @@
 
 .footer-content {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: var(--space-2xl);
-    margin-bottom: var(--space-xl);
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: var(--space-3xl);
+    margin-bottom: var(--space-3xl);
 }
 
 .footer-section {
     display: flex;
     flex-direction: column;
-    gap: var(--space-md);
+    gap: var(--space-lg);
 }
 
 /* Footer Logo */
 .footer-logo {
-    font-family: 'Fraunces', Georgia, serif;
+    font-family: 'Fraunces', serif;
     font-size: var(--font-size-xl);
-    font-weight: var(--font-weight-extrabold);
+    font-weight: 800;
     color: var(--text-primary);
-    margin: 0;
+    letter-spacing: -0.02em;
 }
 
 .footer-tagline {
     font-size: var(--font-size-sm);
     color: var(--text-tertiary);
-    line-height: var(--leading-relaxed);
-    max-width: 280px;
+    line-height: 1.5; /* 줄간격 축소 */
+    max-width: 320px;
+    opacity: 0.9;
 }
 
 /* Footer Headings */
 .footer-heading {
-    font-size: var(--font-size-base);
-    font-weight: var(--font-weight-semibold);
+    font-family: 'Plus Jakarta Sans', sans-serif; /* 폰트 변경 */
+    font-size: 0.8rem;
+    font-weight: 800;
     color: var(--text-primary);
-    margin: 0 0 var(--space-sm) 0;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: var(--space-md);
 }
 
 /* Footer Links */
@@ -55,51 +74,55 @@
     margin: 0;
     display: flex;
     flex-direction: column;
-    gap: var(--space-xs);
+    gap: var(--space-sm);
 }
 
 .footer-link {
     font-size: var(--font-size-sm);
     color: var(--text-tertiary);
-    text-decoration: none;
-    transition: color var(--duration-fast) ease;
-    display: inline-block;
+    transition: all var(--duration-fast) var(--ease-out);
 }
 
 .footer-link:hover {
     color: var(--accent-primary);
+    transform: translateX(4px);
 }
 
 /* Footer Bottom */
 .footer-bottom {
     padding-top: var(--space-xl);
     border-top: 1px solid var(--border-light);
-    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .footer-copyright {
     font-size: var(--font-size-xs);
-    color: var(--text-tertiary);
-    margin: 0;
+    color: var(--text-muted);
 }
 
 /* Responsive */
-@media (max-width: 768px) {
-    .footer {
-        padding: var(--space-2xl) 0 var(--space-lg);
+@media (max-width: 960px) {
+    .footer-content {
+        grid-template-columns: 1fr 1fr;
     }
+}
 
+@media (max-width: 640px) {
+    .footer {
+        padding-top: var(--space-2xl);
+    }
     .footer-content {
         grid-template-columns: 1fr;
-        gap: var(--space-xl);
-    }
-
-    .footer-section {
+        gap: var(--space-2xl);
         text-align: center;
+    }
+    .footer-section {
         align-items: center;
     }
-
-    .footer-tagline {
-        max-width: 100%;
+    .footer-bottom {
+        flex-direction: column;
+        gap: var(--space-md);
     }
 }

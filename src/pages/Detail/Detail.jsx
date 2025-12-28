@@ -98,6 +98,22 @@ console.log('📁 이미지 경로:', project.images.map(img => img.url));
                     </div>
                 </section>
 
+                {/* ✅ 참고 섹션 (뉴스레터 카테고리 전용) */}
+                {project.category === 'newsletter' && project.id !== '100' && (
+                    <section className="detail-section detail-reference">
+                        <h2>참고</h2>
+                        <div className="reference-card glass" onClick={() => navigate('/portfolio/100')}>
+                            <div className="reference-info">
+                                <span className="ref-label">사보 뉴스레터 가이드</span>
+                                <h3 className="ref-title">윤리레터 사보 소개 (참고)</h3>
+                            </div>
+                            <svg className="ref-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </div>
+                    </section>
+                )}
+
                 {/* 하단 버튼 */}
                 <footer className="detail-footer">
                     <button onClick={() => navigate('/work')} className="btn-list">

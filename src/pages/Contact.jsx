@@ -25,40 +25,47 @@ export default function Contact() {
 
   return (
     <section className="contact-page">
+      <div className="contact-bg-glow" />
       <div className="contact-inner">
-        <header className="contact-hero">
-          <h1>Get In Touch</h1>
+        <header className="contact-hero reveal">
+          <h1 className="text-gradient">Get In Touch</h1>
           <p className="contact-lead">
             프로젝트 협업이나 문의사항이 있으시면 언제든 연락주세요. <br />
-            포트폴리오와 관련된 질문도 환영합니다.
+            시각 언어로 조직의 가치를 설계하는 여정에 함께하겠습니다.
           </p>
         </header>
 
-        <div className="contact-content">
-          <div className="contact-cards">
+        <div className="contact-container">
+          <div className="contact-cards grid">
             {contactInfo.map((item, index) => (
               <a
                 key={index}
                 href={item.link}
-                className="contact-card"
+                className="contact-card glass-premium reveal"
+                style={{ animationDelay: `${index * 0.1}s` }}
                 target={item.link.startsWith('http') ? '_blank' : undefined}
                 rel={item.link.startsWith('http') ? 'noopener noreferrer' : undefined}
               >
                 <div className="contact-card-icon">{item.icon}</div>
-                <div className="contact-card-content">
-                  <h3 className="contact-card-label">{item.label}</h3>
+                <div className="contact-card-info">
+                  <span className="contact-card-label">{item.label}</span>
                   <p className="contact-card-value">{item.value}</p>
                 </div>
               </a>
             ))}
           </div>
 
-          <div className="contact-message">
-            <div className="contact-message-box">
+          <div className="contact-message-surface glass reveal" style={{ animationDelay: '0.4s' }}>
+            <div className="contact-message-header">
+              <div className="status-badge">Available Now</div>
               <h2>연락 가능 시간</h2>
-              <p>평일 오전 9시 - 오후 6시</p>
-              <p className="contact-response-time">
-                이메일로 보내주시면 24시간 이내에 답변드리겠습니다.
+            </div>
+            <div className="contact-message-body">
+              <p className="time-display">평일 09:00 - 18:00 (KST)</p>
+              <div className="response-divider" />
+              <p className="contact-response-text">
+                이메일 문의 시 영업일 기준 24시간 이내에 <br />
+                정교하고 상세한 답변을 드리겠습니다.
               </p>
             </div>
           </div>

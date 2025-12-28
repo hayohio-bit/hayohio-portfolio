@@ -1,6 +1,7 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
 import ScrollToTop from '../../components/ui/ScrollToTop'
+import ScrollButtons from '../../components/ui/ScrollButtons'
 import Header from './Header/Header'
 import Footer from './Footer'
 
@@ -13,6 +14,7 @@ export default function MainLayout() {
         </main>
         <Footer />
         <ScrollToTop />
+        <ScrollButtons />
         </div>
     )
 }

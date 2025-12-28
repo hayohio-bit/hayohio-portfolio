@@ -20,25 +20,24 @@ export default function Header() {
     return (
         <header className="header">
             <div className="header-container">
-            <NavLink to="/" className="header-logo logo-style-1">
-            <span className="logo-main">Portfolio</span>
-            <span className="logo-name">sunhayoung</span>
-            </NavLink>
+                <NavLink to="/" className="header-logo">
+                    <i>Portfolio</i> <span>sunhayoung</span>
+                </NavLink>
 
 
 
 
                 <nav className="header-nav">
-                    <NavLink to="/" className={getLinkClassName}>
+                    <NavLink to="/" className={getLinkClassName} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
                         Home
                     </NavLink>
-                    <NavLink to="/about" className={getLinkClassName}>
+                    <NavLink to="/about" className={getLinkClassName} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
                         About
                     </NavLink>
-                    <NavLink to="/work" className={getLinkClassName}>
+                    <NavLink to="/work" className={getLinkClassName} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
                         Work
                     </NavLink>
-                    <NavLink to="/contact" className={getLinkClassName}>
+                    <NavLink to="/contact" className={getLinkClassName} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
                         Contact
                     </NavLink>
                 </nav>
