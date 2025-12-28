@@ -41,7 +41,7 @@
 
 /* Footer Logo */
 .footer-logo {
-    font-family: 'Fraunces', serif;
+    font-family: 'Fraunces', serif; /* 브랜드 폰트 유지 */
     font-size: var(--font-size-xl);
     font-weight: 800;
     color: var(--text-primary);

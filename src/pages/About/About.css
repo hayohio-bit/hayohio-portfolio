@@ -96,7 +96,7 @@
 .about-timeline__title {
   font-size: var(--font-size-xl);
   color: var(--text-primary);
-  font-weight: 800;
+  font-weight: 700; /* 38차: 가독성 최적화 */
 }
 
 .about-timeline__period {

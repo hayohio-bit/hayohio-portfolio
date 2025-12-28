@@ -113,7 +113,7 @@
 
 .work-card-title {
     font-size: var(--font-size-xl);
-    font-weight: 800;
+    font-weight: 700; /* 38차: 가독성을 위해 두께 800 -> 700 조정 */
     color: var(--text-primary);
 }
 
@@ -127,6 +127,46 @@
     .work-grid {
         grid-template-columns: 1fr;
     }
+}
+
+/* 38차: 태그 디자인 고도화 (버튼 쉐이프 적용) */
+.work-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+    margin-top: auto; /* 하단 정렬 보장 */
+}
+
+.work-tag {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-medium);
+    border-radius: var(--radius-full); /* 둥근 캡슐 형태 */
+    padding: 4px 10px;
+    transition: all var(--duration-fast) var(--ease-out);
+}
+
+.work-tag:hover {
+    background: var(--accent-primary);
+    border-color: var(--accent-primary);
+    color: #fff;
+    transform: translateY(-1px);
+}
+
+.work-tag--more {
+    font-weight: 700;
+    color: var(--text-tertiary);
+    background: transparent;
+    border: none;
+    padding-left: var(--space-2xs);
+}
+
+.work-tag--more:hover {
+    color: var(--text-primary);
+    background: transparent;
+    transform: none;
 }
 
 /* ✅ View More 버튼 스타일 */
