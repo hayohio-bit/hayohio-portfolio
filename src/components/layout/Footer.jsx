@@ -9,10 +9,18 @@ const Footer = () => {
         <footer className="footer">
             <div className="footer-container">
                 <div className="footer-content">
+                    
                     <div className="footer-section">
                         <h3 className="footer-logo">Portfolio</h3>
                         <p className="footer-tagline">
-                            React 기반 디자인 포트폴리오를 반응형 갤러리로 카탈로그화한 아카이브 사이트
+                        React 기반 반응형 포트폴리오 아카이브입니다.{' '}<br/><br />
+                        현재 Portfolio 상세 내용은 시연용 임시 데이터로, 
+                        추후 실제 프로젝트로 업데이트 예정입니다.
+                        <br /><br />
+                        모든 콘텐츠의 저작권은 창작자(개발자)에게 있습니다.
+                        </p>
+                        <p className="footer-copyright">
+                        © {currentYear} hayohio. All rights reserved.
                         </p>
                     </div>
 
@@ -41,12 +49,6 @@ const Footer = () => {
                             <li><Link to="/contact" className="footer-link" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>Contact</Link></li>
                         </ul>
                     </div>
-                </div>
-
-                <div className="footer-bottom">
-                    <p className="footer-copyright">
-                        © {currentYear} hayohio. All rights reserved.
-                    </p>
                 </div>
             </div>
         </footer>

@@ -1,1142 +1,650 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>React Portfolio - Enhanced Presentation</title>
-<style>
-    /* CSS Variables for consistent theming - 현업에서 사용하는 CSS Custom Properties 방식 */
-    :root {
-    --primary: #0284c7;
-    --secondary: #0ea5e9;
-    --dark: #0f172a;
-    --light: #f8fafc;
-    --text: #1e293b;
-    --border: #e2e8f0;
-    --success: #10b981;
-    --warning: #f59e0b;
-    --glass-bg: rgba(255, 255, 255, 0.25);
-    --glass-border: rgba(255, 255, 255, 0.18);
-    }
-
-    /* Reset & Base Styles - box-sizing과 margin reset으로 일관된 레이아웃 보장 */
-    * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    }
-
-    body {
-    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    line-height: 1.6;
-    color: var(--text);
-    background: var(--light);
-    overflow-x: hidden;
-    }
-
-    /* Slide-based Presentation Structure - scroll-snap으로 부드러운 슬라이드 전환 */
-    .slide {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 80px 40px;
-    scroll-snap-align: start;
-    background: white;
-    }
-
-    .slide:nth-child(odd) {
-    background: linear-gradient(135deg, #f0f9ff 0%, #f8fafc 100%);
-    }
-
-    .slide-content {
-    max-width: 1000px;
-    width: 100%;
-    }
-
-    /* Fixed Header - z-index와 box-shadow로 고정 헤더 완성도 향상 */
-    .header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    background: white;
-    border-bottom: 1px solid var(--border);
-    padding: 20px 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 999;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    }
-
-    .header-logo {
-    font-size: 20px;
-    font-weight: 800;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    }
-
-    .header-nav {
-    display: flex;
-    gap: 32px;
-    align-items: center;
-    }
-
-    .header-nav a {
-    color: var(--text);
-    text-decoration: none;
-    font-size: 15px;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    position: relative;
-    }
-
-    .header-nav a:hover {
-    color: var(--primary);
-    }
-
-    .header-nav a::after {
-    content: '';
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    transition: width 0.3s ease;
-    }
-
-    .header-nav a:hover::after {
-    width: 100%;
-    }
-
-    /* Typography System - 계층 구조 명확화 및 가독성 향상 */
-    .slide-title h1 {
-    font-size: 64px;
-    font-weight: 800;
-    margin-bottom: 24px;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    line-height: 1.1;
-    letter-spacing: -0.02em;
-    }
-
-    .slide-title p {
-    font-size: 24px;
-    color: #64748b;
-    margin-bottom: 48px;
-    max-width: 600px;
-    }
-
-    .slide-title .subtitle {
-    font-size: 18px;
-    color: #94a3b8;
-    margin-top: 24px;
-    font-weight: 500;
-    }
-
-    .section-title {
-    font-size: 48px;
-    font-weight: 800;
-    margin-bottom: 48px;
-    position: relative;
-    display: inline-block;
-    }
-
-    .section-title::after {
-    content: '';
-    position: absolute;
-    bottom: -16px;
-    left: 0;
-    width: 72px;
-    height: 4px;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    border-radius: 2px;
-    }
-
-    /* Card System - Glassmorphism 효과 강화 및 hover 애니메이션 개선 */
-    .overview-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 32px;
-    margin-top: 40px;
-    }
-
-    .overview-card {
-    background: white;
-    padding: 36px;
-    border-radius: 16px;
-    border: 1px solid var(--border);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    backdrop-filter: blur(10px);
-    position: relative;
-    overflow: hidden;
-    }
-
-    .overview-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, var(--primary), var(--secondary));
-    transform: scaleX(0);
-    transition: transform 0.4s ease;
-    }
-
-    .overview-card:hover {
-    border-color: var(--primary);
-    box-shadow: 0 20px 40px rgba(2, 132, 199, 0.15);
-    transform: translateY(-8px);
-    }
-
-    .overview-card:hover::before {
-    transform: scaleX(1);
-    }
-
-    .overview-card h3 {
-    font-size: 20px;
-    margin-bottom: 16px;
-    color: var(--primary);
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-weight: 700;
-    }
-
-    .overview-card p {
-    font-size: 15px;
-    color: #64748b;
-    line-height: 1.7;
-    }
-
-    /* Tech Stack Grid - 반응형 그리드 및 hover 효과 개선 */
-    .tech-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 24px;
-    margin-top: 40px;
-    }
-
-    .tech-badge {
-    background: white;
-    padding: 24px;
-    border-radius: 12px;
-    text-align: center;
-    border: 2px solid var(--border);
-    transition: all 0.3s ease;
-    font-size: 15px;
-    font-weight: 600;
-    position: relative;
-    overflow: hidden;
-    }
-
-    .tech-badge::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-    transition: left 0.5s;
-    }
-
-    .tech-badge:hover {
-    border-color: var(--primary);
-    color: var(--primary);
-    box-shadow: 0 12px 24px rgba(2, 132, 199, 0.2);
-    transform: translateY(-4px) scale(1.02);
-    }
-
-    .tech-badge:hover::before {
-    left: 100%;
-    }
-
-    /* Architecture Diagram - 4열 그리드로 구조화 */
-    .architecture {
-    background: white;
-    padding: 48px;
-    border-radius: 16px;
-    border: 1px solid var(--border);
-    margin-top: 40px;
-    }
-
-    .arch-diagram {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    margin-top: 32px;
-    }
-
-    .arch-box {
-    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
-    padding: 24px;
-    border-radius: 12px;
-    border: 2px solid var(--primary);
-    text-align: center;
-    font-weight: 600;
-    font-size: 14px;
-    color: var(--primary);
-    transition: all 0.3s ease;
-    }
-
-    .arch-box:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 24px rgba(2, 132, 199, 0.2);
-    }
-
-    /* Features List - 2열 그리드 및 강조 라인 */
-    .features-list {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-    margin-top: 40px;
-    }
-
-    .feature-item {
-    padding: 24px;
-    background: white;
-    border-left: 5px solid var(--primary);
-    border-radius: 8px;
-    transition: all 0.3s ease;
-    }
-
-    .feature-item:hover {
-    box-shadow: 0 12px 24px rgba(0,0,0,0.1);
-    transform: translateX(8px);
-    }
-
-    .feature-item h4 {
-    color: var(--primary);
-    margin-bottom: 12px;
-    font-size: 18px;
-    font-weight: 700;
-    }
-
-    .feature-item p {
-    color: #64748b;
-    font-size: 15px;
-    line-height: 1.6;
-    }
-
-    /* Gallery Grid - 3열 포트폴리오 갤러리 */
-    .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    margin-top: 40px;
-    }
-
-    .gallery-card {
-    background: white;
-    border-radius: 16px;
-    overflow: hidden;
-    border: 1px solid var(--border);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .gallery-card:hover {
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-    transform: translateY(-12px);
-    }
-
-    .gallery-image {
-    width: 100%;
-    height: 180px;
-    background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--primary);
-    font-size: 14px;
-    font-weight: 600;
-    text-align: center;
-    padding: 24px;
-    }
-
-    .gallery-content {
-    padding: 20px;
-    }
-
-    .gallery-content h4 {
-    font-size: 16px;
-    margin-bottom: 8px;
-    color: var(--text);
-    }
-
-    .gallery-content p {
-    font-size: 13px;
-    color: #94a3b8;
-    }
-
-    /* Achievements Section - 숫자 애니메이션 준비 */
-    .achievements {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 32px;
-    margin-top: 40px;
-    }
-
-    .achievement-card {
-    text-align: center;
-    padding: 40px 24px;
-    background: white;
-    border-radius: 16px;
-    border: 1px solid var(--border);
-    }
-
-    .achievement-number {
-    font-size: 56px;
-    font-weight: 800;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 12px;
-    line-height: 1;
-    }
-
-    .achievement-label {
-    font-size: 15px;
-    color: #64748b;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    }
-
-    /* State Management Visualization */
-    .state-management {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    margin-top: 40px;
-    }
-
-    .state-box {
-    background: white;
-    padding: 32px;
-    border-radius: 12px;
-    border: 1px solid var(--border);
-    text-align: center;
-    }
-
-    .state-box h4 {
-    color: var(--primary);
-    margin-bottom: 20px;
-    font-size: 18px;
-    font-weight: 700;
-    }
-
-    .state-box ul {
-    list-style: none;
-    font-size: 14px;
-    color: #64748b;
-    }
-
-    .state-box li {
-    padding: 8px 0;
-    border-bottom: 1px solid var(--border);
-    }
-
-    .state-box li:last-child {
-    border-bottom: none;
-    }
-
-    /* Component Tree - 코드 하이라이팅 스타일 */
-    .component-tree {
-    background: var(--dark);
-    color: #e2e8f0;
-    padding: 36px;
-    border-radius: 12px;
-    font-family: 'Monaco', 'Courier New', monospace;
-    font-size: 14px;
-    line-height: 1.7;
-    overflow-x: auto;
-    margin-top: 24px;
-    white-space: pre-wrap;
-    }
-
-    .component-tree .highlight {
-    color: var(--success);
-    font-weight: 600;
-    }
-
-    /* Timeline - 프로젝트 개발 타임라인 */
-    .timeline {
-    position: relative;
-    padding: 24px 0;
-    margin-top: 40px;
-    }
-
-    .timeline::before {
-    content: '';
-    position: absolute;
-    left: 28px;
-    top: 0;
-    bottom: 0;
-    width: 3px;
-    background: linear-gradient(to bottom, var(--primary), var(--secondary));
-    }
-
-    .timeline-item {
-    margin-bottom: 36px;
-    margin-left: 88px;
-    position: relative;
-    }
-
-    .timeline-item::before {
-    content: '';
-    position: absolute;
-    left: -84px;
-    top: 4px;
-    width: 20px;
-    height: 20px;
-    background: var(--primary);
-    border-radius: 50%;
-    border: 4px solid white;
-    box-shadow: 0 4px 12px rgba(2, 132, 199, 0.4);
-    z-index: 1;
-    }
-
-    .timeline-date {
-    font-size: 13px;
-    color: var(--primary);
-    font-weight: 700;
-    margin-bottom: 8px;
-    }
-
-    .timeline-content {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    border: 1px solid var(--border);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    }
-
-    .timeline-content h4 {
-    margin-bottom: 8px;
-    font-size: 16px;
-    color: var(--text);
-    }
-
-    .timeline-content p {
-    font-size: 14px;
-    color: #64748b;
-    }
-
-    /* CTA Buttons - 완성도 높은 버튼 시스템 */
-    .cta-buttons {
-    display: flex;
-    gap: 24px;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 48px;
-    }
-
-    .btn {
-    padding: 16px 36px;
-    border-radius: 12px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    border: none;
-    cursor: pointer;
-    font-size: 15px;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    }
-
-    .btn-primary {
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    color: white;
-    box-shadow: 0 8px 20px rgba(2, 132, 199, 0.3);
-    }
-
-    .btn-primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 16px 32px rgba(2, 132, 199, 0.4);
-    }
-
-    .btn-secondary {
-    background: white;
-    color: var(--primary);
-    border: 2px solid var(--primary);
-    }
-
-    .btn-secondary:hover {
-    background: var(--primary);
-    color: white;
-    transform: translateY(-2px);
-    }
-
-    /* Scroll Indicator - 부드러운 애니메이션 */
-    .scroll-indicator {
-    position: fixed;
-    bottom: 40px;
-    right: 40px;
-    width: 48px;
-    height: 48px;
-    background: var(--primary);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 20px;
-    animation: bounce 2s infinite;
-    cursor: pointer;
-    box-shadow: 0 8px 20px rgba(2, 132, 199, 0.3);
-    transition: all 0.3s ease;
-    z-index: 100;
-    }
-
-    .scroll-indicator:hover {
-    transform: scale(1.1);
-    background: var(--secondary);
-    }
-
-    @keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-    }
-
-    /* Responsive Design - 모바일 우선 접근법 */
-    @media (max-width: 768px) {
-    .slide {
-        padding: 60px 24px;
-        margin-top: 70px;
-    }
-
-    .header {
-        padding: 16px 24px;
-    }
-
-    .slide-title h1 {
-        font-size: 42px;
-    }
-
-    .section-title {
-        font-size: 32px;
-    }
-
-    .overview-grid,
-    .features-list,
-    .gallery-grid,
-    .achievements,
-    .state-management {
-        grid-template-columns: 1fr;
-    }
-
-    .arch-diagram {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .header-nav {
-        gap: 20px;
-        font-size: 14px;
-    }
-
-    .cta-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .btn {
-        width: 100%;
-        max-width: 280px;
-        justify-content: center;
-    }
-    }
-
-    /* Print Styles - 프레젠테이션 출력 최적화 */
-    @media print {
-    .header,
-    .scroll-indicator,
-    .header-nav {
-        display: none !important;
-    }
-
-    .slide {
-        page-break-after: always;
-        min-height: auto;
-        padding: 40px;
-        margin-top: 0;
-    }
-    }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Portfolio - SunHayoung</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #020617;
+            --bg-ocean: #0f172a;
+            --bg-royal: #172554;
+            
+            --text-white: #f8fafc;
+            --text-blue-gray: #94a3b8;
+            --text-accent: #38bdf8;
+            
+            --grad-primary: linear-gradient(135deg, #60a5fa, #3b82f6);
+            --grad-accent: linear-gradient(135deg, #22d3ee, #0ea5e9);
+            
+            --glass-bg: rgba(30, 58, 138, 0.25);
+            --glass-border: rgba(96, 165, 250, 0.2);
+            --glass-glow: rgba(59, 130, 246, 0.15);
+            
+            --easing: cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: linear-gradient(160deg, var(--bg-deep) 0%, var(--bg-royal) 100%);
+            color: var(--text-white);
+            font-family: 'Noto Sans KR', sans-serif;
+            height: 95vh; width: 100vw;
+            overflow: hidden;
+            position: relative;
+        }
+
+        h1, h2, h3, h4, .en-font { font-family: 'Outfit', sans-serif; }
+
+        /* --- GLOBAL FX --- */
+        .ambient-glow {
+            position: fixed; top: -50%; left: -50%; width: 200%; height: 200%;
+            background: radial-gradient(circle at center, rgba(29, 78, 216, 0.15) 0%, transparent 50%);
+            pointer-events: none; z-index: 0;
+            animation: pulseGlow 10s infinite alternate;
+        }
+        @keyframes pulseGlow { from { transform: scale(1); } to { transform: scale(1.1); } }
+
+        /* --- SLIDE LAYOUT --- */
+        .presentation {
+            width: 100%; height: 100%;
+            position: relative; z-index: 10;
+        }
+
+        .slide {
+            position: absolute; inset: 0;
+            display: flex; flex-direction: column;
+            justify-content: center; align-items: center;
+            padding: 4rem 6rem;
+            opacity: 0; visibility: hidden;
+            transform: scale(0.95) translateY(10px);
+            transition: all 0.7s var(--easing);
+            pointer-events: none;
+        }
+
+        .slide.active {
+            opacity: 1; visibility: visible;
+            transform: scale(1) translateY(0);
+            pointer-events: auto;
+        }
+
+        /* --- TYPOGRAPHY --- */
+        .slide-header { text-align: center; margin-bottom: 3.5rem; }
+        
+        .slide-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 3.5rem; font-weight: 800;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(to right, #ffffff, #93c5fd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(59, 130, 246, 0.3);
+        }
+
+        .slide-subtitle {
+            font-size: 1.25rem; color: var(--text-blue-gray); font-weight: 400;
+        }
+
+        /* --- BLUE GLASS CARDS --- */
+        .grid {
+            display: grid; gap: 2rem; width: 100%; max-width: 1400px;
+            margin: 0 auto;
+        }
+        .cols-2 { grid-template-columns: repeat(2, 1fr); }
+        .cols-3 { grid-template-columns: repeat(3, 1fr); }
+        .cols-4 { grid-template-columns: repeat(4, 1fr); }
+
+        .card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 2.5rem;
+            backdrop-filter: blur(12px);
+            transition: all 0.4s ease;
+            position: relative; overflow: hidden;
+        }
+        
+        .card:hover {
+            transform: translateY(-8px);
+            background: rgba(30, 58, 138, 0.4);
+            border-color: #60a5fa;
+            box-shadow: 0 20px 40px -10px var(--glass-glow);
+        }
+
+        .card-head {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem; font-weight: 700;
+            color: #fff; margin-bottom: 1rem;
+            display: flex; align-items: center; gap: 0.8rem;
+        }
+        
+        .card-icon { 
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 40px; height: 40px; border-radius: 10px;
+            background: rgba(59, 130, 246, 0.2); color: #60a5fa; font-size: 1.2rem;
+        }
+        
+        .card-body {
+            font-size: 1.05rem; color: #cbd5e1; line-height: 1.6;
+            font-weight: 300;
+        }
+        
+        /* Highlight Text inside cards */
+        strong { color: var(--text-accent); font-weight: 600; }
+
+        /* --- INTRO SLIDE (FLYING TEXT) --- */
+        .intro-container { display: flex; flex-direction: column; gap: 10px; }
+        .intro-row { overflow: hidden; display: flex; align-items: baseline; }
+        
+        .char-head {
+            font-family: 'Outfit', sans-serif;
+            font-size: 6rem; font-weight: 900;
+            color: #fff;
+            transform: translateY(100%);
+            opacity: 0;
+            transition: all 0.8s var(--easing);
+            text-shadow: 0 0 40px rgba(59, 130, 246, 0.6);
+        }
+        
+        .char-tail {
+            font-family: 'Outfit', sans-serif;
+            font-size: 3.5rem; font-weight: 400; color: #94a3b8;
+            margin-left: 1.5rem;
+            opacity: 0; transform: translateX(40px);
+            transition: all 0.8s ease 0.2s;
+        }
+
+        .slide.active .char-head { transform: translateY(0); opacity: 1; }
+        .slide.active .char-tail { transform: translateX(0); opacity: 1; }
+        
+        /* Intro Stagger */
+        .slide.active .intro-row:nth-child(1) * { transition-delay: 0.1s; }
+        .slide.active .intro-row:nth-child(2) * { transition-delay: 0.2s; }
+        .slide.active .intro-row:nth-child(3) * { transition-delay: 0.3s; }
+        .slide.active .intro-row:nth-child(4) * { transition-delay: 0.4s; }
+        .slide.active .intro-row:nth-child(5) * { transition-delay: 0.5s; }
+
+        /* --- TROUBLESHOOTING UI --- */
+        .ts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; width: 100%; max-width: 1200px; }
+        .ts-box {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 16px; padding: 2rem;
+        }
+        .ts-title { color: #f87171; font-weight: 700; margin-bottom: 0.5rem; font-size: 1.2rem; }
+        .ts-solve { color: #4ade80; font-weight: 700; margin-bottom: 0.5rem; font-size: 1.2rem; margin-top: 1.5rem; }
+
+        /* --- CONTROLS --- */
+        .nav-bar {
+            position: fixed; bottom: 1rem; left: 50%; transform: translateX(-50%);
+            display: flex; align-items: center; gap: 1rem;
+            z-index: 100;
+            padding: 0.8rem 1.5rem;
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 30px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .nav-dot {
+            width: 10px; height: 10px; border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+            cursor: pointer; transition: all 0.3s;
+        }
+        .nav-dot.active { background: #38bdf8; transform: scale(1.3); box-shadow: 0 0 10px #38bdf8; }
+        
+        .pg-num { font-family: 'Outfit'; font-weight: 700; color: #fff; margin-left: 1rem; min-width: 40px; }
+
+    </style>
 </head>
 <body>
-<!-- Fixed Navigation Header -->
-<div class="header">
-    <div class="header-logo">React Portfolio</div>
-    <div class="header-nav">
-    <a onclick="scrollToSlide(0)">Home</a>
-    <a onclick="scrollToSlide(1)">Overview</a>
-    <a onclick="scrollToSlide(3)">Tech</a>
-    <a onclick="scrollToSlide(5)">Features</a>
-    <a onclick="scrollToSlide(8)">Timeline</a>
-    <a onclick="scrollToSlide(11)">Contact</a>
-    </div>
-</div>
 
-<!-- Slide 1: Hero Introduction -->
-<div class="slide">
-    <div class="slide-content">
-    <div class="slide-title">
-        <h1>Strategic Design<br>Engineering Portfolio</h1>
-        <p>React 18 + Vite + Redux Toolkit으로 구현한<br>현업 수준의 포트폴리오 웹사이트</p>
-        <div class="subtitle">
-        6일 완성 | Hyper-Sensitive Zoom | Hybrid Typography<br>
-        Glassmorphism UI | Redux DevTools | SPA 라우팅
-        </div>
-    </div>
-    </div>
-</div>
+    <div class="ambient-glow"></div>
 
-<!-- Slide 2: Project Overview -->
-<div class="slide">
-    <div class="slide-content">
-    <h2 class="section-title">Project Overview</h2>
-    <div class="overview-grid">
-        <div class="overview-card">
-        <h3>📊 Project Stats</h3>
-        <p><strong>27</strong>개 포트폴리오 항목<br><strong>6</strong>개 카테고리<br><strong>100+</strong>개 고해상도 이미지 자산</p>
-        </div>
-        <div class="overview-card">
-        <h3>🚀 Tech Stack</h3>
-        <p><strong>Frontend:</strong> React 18, Vite<br><strong>State:</strong> Redux Toolkit<br><strong>Router:</strong> React Router v6</p>
-        </div>
-        <div class="overview-card">
-        <h3>✨ UI/UX Features</h3>
-        <p>Hyper-Sensitive Zoom (2-Stage)<br>Hybrid Typography (Fraunces + Outfit)<br>Premium Glassmorphism UI</p>
-        </div>
-        <div class="overview-card">
-        <h3>⚡ Performance</h3>
-        <p>Code Splitting | Lazy Loading<br>React.memo | useMemo 최적화<br>Vite Bundle 최적화</p>
-        </div>
-    </div>
-    </div>
-</div>
+    <div class="presentation">
 
-<!-- Slide 3: Tech Stack -->
-<div class="slide">
-    <div class="slide-content">
-    <h2 class="section-title">Tech Stack</h2>
-    <h3 style="margin-top: 40px; margin-bottom: 24px; font-size: 22px; color: var(--primary);">Core Technologies</h3>
-    <div class="tech-grid">
-        <div class="tech-badge">React 18</div>
-        <div class="tech-badge">Vite</div>
-        <div class="tech-badge">Redux Toolkit</div>
-        <div class="tech-badge">React Router v6</div>
-        <div class="tech-badge">CSS Variables</div>
-        <div class="tech-badge">Glassmorphism</div>
-        <div class="tech-badge">Responsive Grid</div>
-        <div class="tech-badge">Custom Hooks</div>
-    </div>
+        <!-- 0. INTRO -->
+        <div class="slide">
+            <div class="intro-container">
+                <div class="intro-row"><div class="char-head">R</div><div class="char-tail">eact</div></div>
+                <div class="intro-row"><div class="char-head">E</div><div class="char-tail">xperience</div></div>
+                <div class="intro-row"><div class="char-head">A</div><div class="char-tail">rchive</div></div>
+                <div class="intro-row"><div class="char-head">C</div><div class="char-tail">reative</div></div>
+                <div class="intro-row"><div class="char-head">T</div><div class="char-tail">imeline</div></div>
+            </div>
+            <div style="margin-top: 3rem; opacity: 0; animation: fadeUp 1s 1s forwards;">
+                <p style="text-align: center; color: var(--text-accent); font-size: 1.2rem; font-weight: 600;">
+                    React Portfolio by Sunhayoung
+                </p>
+                <p style="text-align: center; color: var(--text-blue-gray); margin-top: 0.5rem;">2025.12</p>
+            </div>
+        </div>
 
-    <!-- Architecture Diagram -->
-    <div class="architecture">
-        <h3 style="color: var(--primary); margin-bottom: 24px;">Architecture Overview</h3>
-        <div class="arch-diagram">
-        <div class="arch-box">📄 Pages<br>Home/Work/Detail</div>
-        <div class="arch-box">🧩 Components<br>Header/Footer/Cards</div>
-        <div class="arch-box">💾 State<br>Redux Store/Theme</div>
-        <div class="arch-box">🔧 Utils<br>Hooks/Helpers/Data</div>
+        <!-- 1. TABLE OF CONTENTS -->
+        <div class="slide" id="slide-new-1">
+            <div class="slide-header">
+                <h2 class="slide-title">Table of Contents</h2>
+                <p class="slide-subtitle">목차</p>
+            </div>
+            <div class="grid cols-3">
+                <div class="card" style="text-align: center;">
+                    <div style="font-size: 3rem; font-weight: 800; color: rgba(255,255,255,0.1); margin-bottom: 0.5rem;">01</div>
+                    <div class="card-head" style="justify-content: center;">Overview</div>
+                    <div class="card-body">프로젝트 개요</div>
+                </div>
+                <div class="card" style="text-align: center;">
+                    <div style="font-size: 3rem; font-weight: 800; color: rgba(255,255,255,0.1); margin-bottom: 0.5rem;">02</div>
+                    <div class="card-head" style="justify-content: center;">Features</div>
+                    <div class="card-body">주요 기능</div>
+                </div>
+                <div class="card" style="text-align: center;">
+                    <div style="font-size: 3rem; font-weight: 800; color: rgba(255,255,255,0.1); margin-bottom: 0.5rem;">03</div>
+                    <div class="card-head" style="justify-content: center;">Tech Stack · Structure</div>
+                    <div class="card-body">기술 스택과 프로젝트 구조</div>
+                </div>
+                <div class="card" style="text-align: center;">
+                    <div style="font-size: 3rem; font-weight: 800; color: rgba(255,255,255,0.1); margin-bottom: 0.5rem;">04</div>
+                    <div class="card-head" style="justify-content: center;">Solving</div>
+                    <div class="card-body">문제 해결 과정</div>
+                </div>
+                <div class="card" style="text-align: center;">
+                    <div style="font-size: 3rem; font-weight: 800; color: rgba(255,255,255,0.1); margin-bottom: 0.5rem;">05</div>
+                    <div class="card-head" style="justify-content: center;">Timeline</div>
+                    <div class="card-body">개발 로그</div>
+                </div>
+                <div class="card" style="text-align: center;">
+                    <div style="font-size: 3rem; font-weight: 800; color: rgba(255,255,255,0.1); margin-bottom: 0.5rem;">06</div>
+                    <div class="card-head" style="justify-content: center;">Outcomes</div>
+                    <div class="card-body">성과 및 회고</div>
+                </div>
+            </div>
         </div>
-    </div>
-    </div>
-</div>
 
-<!-- Slide 4: Key Features -->
-<div class="slide">
-    <div class="slide-content">
-    <h2 class="section-title">Key Features</h2>
-    <div class="features-list">
-        <div class="feature-item">
-        <h4>🔍 Hyper-Sensitive Zoom</h4>
-        <p>95vh + 75vw 2-Stage Zoom<br>부드러운 확대/축소 경험 제공</p>
-        </div>
-        <div class="feature-item">
-        <h4>🔤 Hybrid Typography</h4>
-        <p>Fraunces(Brand Identity) + Outfit(Readability)<br>시각적 계층 완벽 구현</p>
-        </div>
-        <div class="feature-item">
-        <h4>🥛 Premium Glassmorphism</h4>
-        <p>Backdrop-filter + CSS Variables<br>모던한 유리질 UI 효과</p>
-        </div>
-        <div class="feature-item">
-        <h4>🌐 SPA URL Routing</h4>
-        <p>React Router v6 완벽 구현<br>useParams/useNavigate 활용</p>
-        </div>
-        <div class="feature-item">
-        <h4>⚡ Performance</h4>
-        <p>Lazy Loading + useMemo<br>렌더링 최적화 완성</p>
-        </div>
-        <div class="feature-item">
-        <h4>🎨 UI/UX Polish</h4>
-        <p>Hover Effects + Cursor Animation<br>마이크로 인터랙션 완성</p>
-        </div>
-    </div>
-    </div>
-</div>
+        <!-- 2. OVERVIEW -->
+        <div class="slide">
+            
 
-<!-- Slide 5: Portfolio Gallery -->
-<div class="slide">
-    <div class="slide-content">
-    <h2 class="section-title">Portfolio Gallery</h2>
-    <div class="gallery-grid">
-        <div class="gallery-card">
-        <div class="gallery-image">📧 Newsletter</div>
-        <div class="gallery-content">
-            <h4>2024.12 Newsletter</h4>
-            <p>이메일 뉴스레터 디자인</p>
+        <div class="slide-header">
+            <h2 class="slide-title">Project Overview</h2>
+            <p class="slide-subtitle">리액트 기반 인터랙티브 포트폴리오 웹사이트 구현</p>
         </div>
+            <div class="grid cols-3">
+                <div class="card">
+                    <div class="card-head"><span class="card-icon">🎯</span> Goal</div>
+                    <div class="card-body">단순 클론 코딩을 넘어,<br><strong>데이터 흐름과 상태 관리</strong>를<br>직접 설계하고 구현하는 것.</div>
+                </div>
+                <!-- Updated Duration Card -->
+                <div class="card">
+                    <div class="card-head"><span class="card-icon">📅</span> Duration</div>
+                    <div class="card-body">
+                        2025.12.15 (월) ~ 12.24 (수)<br>
+                        <strong>9 Days Sprint</strong> | 지속 개발 중
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-head"><span class="card-icon">⚡</span> Key Result</div>
+                    <div class="card-body">
+                        <strong>Functional Components & Hooks</strong><br>
+                        실무적 활용 및 비즈니스 로직 추상화<br>
+                        <strong>Redux Toolkit</strong>으로 복잡한 상태 관리 체계화
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="gallery-card">
-        <div class="gallery-image">📋 Campaign</div>
-        <div class="gallery-content">
-            <h4>Product Campaign</h4>
-            <p>프로모션 캠페인 자료</p>
-        </div>
-        </div>
-        <div class="gallery-card">
-        <div class="gallery-image">🎯 Exhibition Board</div>
-        <div class="gallery-content">
-            <h4>B2B Exhibition</h4>
-            <p>B2B 전시회 부스 디자인</p>
-        </div>
-        </div>
-        <div class="gallery-card">
-        <div class="gallery-image">📄 Leaflet</div>
-        <div class="gallery-content">
-            <h4>Product Leaflet</h4>
-            <p>B2B 제품 리플렛</p>
-        </div>
-        </div>
-        <div class="gallery-card">
-        <div class="gallery-image">🎨 Promotion</div>
-        <div class="gallery-content">
-            <h4>Brand Promotion</h4>
-            <p>B2B 브랜드 프로모션</p>
-        </div>
-        </div>
-        <div class="gallery-card">
-        <div class="gallery-image">💡 Personal</div>
-        <div class="gallery-content">
-            <h4>Personal Project</h4>
-            <p>개인 프로젝트 컬렉션</p>
-        </div>
-        </div>
-    </div>
-    </div>
-</div>
 
-<!-- Slide 6: Redux State Management -->
-<div class="slide">
-    <div class="slide-content">
-    <h2 class="section-title">Redux State Management</h2>
-    <h3 style="margin-bottom: 24px; color: var(--primary);">Redux Store Structure</h3>
-    <div class="state-management">
-        <div class="state-box">
-        <h4>Portfolio</h4>
-        <ul>
-            <li>portfolios</li>
-            <li>categories</li>
-            <li>selectedCategory</li>
-            <li>searchQuery</li>
-            <li>sortBy</li>
-        </ul>
+        <!-- 2. FEATURES -->
+        <div class="slide">
+            <div class="slide-header">
+                <h2 class="slide-title">Core Features</h2>
+                <p class="slide-subtitle">사용자 경험(UX)을 최우선으로 고려한 기능 구현</p>
+            </div>
+            <!-- Updated Features Slide with 6 Core Items -->
+            <div class="grid cols-3" style="font-size: 0.9rem;">
+                <div class="card">
+                    <div class="card-head" style="font-size:1.3rem;">✅ Home Page</div>
+                    <div class="card-body">
+                        디자인물 카드 그리드 레이아웃<br>썸네일 + 제목 + 태그 구성
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-head" style="font-size:1.3rem;">✅ Category Filter</div>
+                    <div class="card-body">
+                        Redux 기반 실시간 필터링<br>즉시 반응하는 UI 업데이트
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-head" style="font-size:1.3rem;">✅ Search</div>
+                    <div class="card-body">
+                        제목/태그 실시간 검색 구현<br><strong>useCallback</strong> 최적화
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-head" style="font-size:1.3rem;">✅ Sort Logic</div>
+                    <div class="card-body">
+                        최신/오래된순/가나다 정렬<br>Redux Selector 활용
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-head" style="font-size:1.3rem;">✅ Detail Zoom</div>
+                    <div class="card-body">
+                        95vh 고해상도 확대 뷰어<br>Hyper-Sensitive Zoom
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-head" style="font-size:1.3rem;">✅ Theme & Responsive</div>
+                    <div class="card-body">
+                        다크/라이트 모드 (Context API)<br>완벽한 모바일-데스크톱 대응
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="state-box">
-        <h4>Theme</h4>
-        <ul>
-            <li>current (light/dark)</li>
-            <li>preferences</li>
-            <li>localStorage sync</li>
-            <li>System preference</li>
-        </ul>
-        </div>
-        <div class="state-box">
-        <h4>UI State</h4>
-        <ul>
-            <li>isMenuOpen</li>
-            <li>scrollPosition</li>
-            <li>selectedProject</li>
-            <li>Loading State</li>
-        </ul>
-        </div>
-    </div>
 
-    <!-- Component Tree -->
-    <div class="component-tree">
-<span class="highlight">App</span>
-├── MainLayout
-│   ├── Header (Navigation, Theme Toggle)
-│   ├── Outlet (Route Pages)
-│   └── Footer
-├── Home Page
-│   ├── Hero (HeroPlanet)
-│   └── WorkSection (Featured Items)
-├── Work Page
-│   ├── Filter Controls
-│   └── PortfolioList (PortfolioCard)
-└── Detail Page
-    └── Full Portfolio Details + Gallery
-    </div>
-    </div>
-</div>
+        <!-- 3. TECH CONTEXT -->
+        <!-- 3. TECH STACK (UPDATED) -->
+        <div class="slide">
+            <div class="slide-header">
+                <h2 class="slide-title">Structure & Tech Stack</h2>
+                <p class="slide-subtitle">견고한 아키텍처와 기술 선정</p>
+            </div>
+            <div class="grid cols-2" style="font-size: 0.9rem; align-items: start;">
+                
+                <!-- Left: Stack List -->
+                <div style="display:flex; flex-direction:column; gap:1rem;">
+                   <div class="card">
+                       <div class="card-head" style="font-size:1.2rem;">Frontend & Build</div>
+                       <div class="card-body">
+                           - <strong>React 18</strong>: 최신 Hooks API<br>
+                           - <strong>Vite</strong>: 빠른 HMR & 번들링<br>
+                           - <strong>Router v6</strong>: SPA 동적 라우팅
+                       </div>
+                   </div>
+                   <div class="card">
+                       <div class="card-head" style="font-size:1.2rem;">State Management</div>
+                       <div class="card-body">
+                           - <strong>Redux Toolkit</strong>: Slice 패턴 관리<br>
+                           (portfolio, theme, ui slices)<br>
+                           - <strong>Context API</strong>: Theme 전역 관리
+                       </div>
+                   </div>
+                   <div class="card">
+                       <div class="card-head" style="font-size:1.2rem;">Advanced Patterns</div>
+                       <div class="card-body">
+                           - <strong>Custom Hooks</strong>: 로직 추상화<br>
+                           - <strong>Lazy Loading</strong>: 초기 로딩 최적화
+                       </div>
+                   </div>
+                </div>
+                 <!-- Right: Folder Structure -->
+                 <div class="card" style="height: 100%; font-family: monospace; font-size: 0.85rem; line-height: 1.4; overflow-y: auto;">
+                    <div class="card-head" style="font-size:1.2rem;">📂 Project Tree</div>
+                    <div class="card-body" style="white-space: pre; color: #94a3b8;">
+src
+ ├── components
+ │   ├── layout (Header, Footer)
+ │   ├── portfolio (Card, List)
+ │   └── ui (Buttons, Scroll)
+ ├── pages
+ │   ├── Home, About, Work
+ │   └── Detail, Contact
+ ├── store
+ │   └── slices (portfolio, theme)
+ ├── theme (Context, Hooks)
+ ├── utils (Images, Helpers)
+ └── App.jsx
+                    </div>
+                 </div>
+            </div>
+        </div>
 
-<!-- Slide 7: Key Learnings -->
-<div class="slide">
-    <div class="slide-content">
-    <h2 class="section-title">Key Learnings</h2>
-    <div style="background: white; padding: 48px; border-radius: 16px; border: 1px solid var(--border); margin-top: 40px;">
-        <ul style="list-style: none; display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 24px;">
-        <li style="padding: 24px; background: #f8fafc; border-left: 5px solid var(--success); border-radius: 8px;">
-            <strong>React Hooks</strong><br>useEffect, useMemo, useCallback 완벽 활용
-        </li>
-        <li style="padding: 24px; background: #f8fafc; border-left: 5px solid var(--success); border-radius: 8px;">
-            <strong>Redux Toolkit</strong><br>RTK Query, DevTools, createSlice 패턴
-        </li>
-        <li style="padding: 24px; background: #f8fafc; border-left: 5px solid var(--success); border-radius: 8px;">
-            <strong>CSS Grid/Flexbox</strong><br>모던 레이아웃 시스템 완성
-        </li>
-        <li style="padding: 24px; background: #f8fafc; border-left: 5px solid var(--success); border-radius: 8px;">
-            <strong>React Router</strong><br>useParams, useNavigate 활용 SPA 완성
-        </li>
-        <li style="padding: 24px; background: #f8fafc; border-left: 5px solid var(--success); border-radius: 8px;">
-            <strong>Performance</strong><br>Lazy Loading, Memoization 최적화
-        </li>
-        <li style="padding: 24px; background: #f8fafc; border-left: 5px solid var(--success); border-radius: 8px;">
-            <strong>Vite + DevTools</strong><br>빌드 최적화 및 디버깅 완성
-        </li>
-        </ul>
-    </div>
-    </div>
-</div>
+        <!-- 4. TROUBLESHOOTING (DETAILED) -->
+        <div class="slide">
+            <div class="slide-header">
+                <h2 class="slide-title">Problem & Solving</h2>
+                <p class="slide-subtitle">CODE LEVEL Trouble Shooting</p>
+            </div>
+            <div class="grid cols-2" style="gap: 1.5rem; font-size: 0.9rem;">
+                
+                <!-- Issue 1 -->
+                <div class="ts-box">
+                    <div class="ts-title">🔴 1. Git Pages Asset 404</div>
+                    <div style="margin: 0.5rem 0; font-size: 0.85rem; color:#cbd5e1;">Base URL 경로 불일치로 리소스 로드 실패</div>
+                    <div style="background: rgba(0,0,0,0.3); padding: 0.5rem; border-radius: 6px; font-family: monospace; font-size: 0.8rem; color: #f87171;">
+                        // Before: `${baseUrl}${cleanPath}`
+                    </div>
+                    <div class="ts-solve" style="margin-top: 0.5rem; font-size: 1rem;">🟢 Solution</div>
+                    <div style="background: rgba(0,0,0,0.3); padding: 0.5rem; border-radius: 6px; font-family: monospace; font-size: 0.8rem; color: #4ade80;">
+                        // After: path.startsWith('/') ? path.slice(1) : path
+                    </div>
+                    <div style="margin-top:0.3rem; font-size: 0.8rem;">순수 상대 경로로 변환하여 해결</div>
+                </div>
 
-<!-- Slide 8: Development Timeline -->
-<div class="slide">
-    <div class="slide-content">
-    <h2 class="section-title">Development Timeline</h2>
-    <div class="timeline">
-        <div class="timeline-item">
-        <div class="timeline-date">Day 1</div>
-        <div class="timeline-content">
-            <h4>Vite + Redux Store 초기화</h4>
-            <p>프로젝트 셋업, Redux Store, 기본 라우팅 구성</p>
-        </div>
-        </div>
-        <div class="timeline-item">
-        <div class="timeline-date">Day 2</div>
-        <div class="timeline-content">
-            <h4>Layout Components (2h)</h4>
-            <p>Header, Footer, Layout 구성. Context API + Theme Toggle 구현</p>
-        </div>
-        </div>
-        <div class="timeline-item">
-        <div class="timeline-date">Day 3</div>
-        <div class="timeline-content">
-            <h4>Core Components (2h)</h4>
-            <p>PortfolioCard, PortfolioList 구현. 필터링 + HeroPlanet 애니메이션</p>
-        </div>
-        </div>
-        <div class="timeline-item">
-        <div class="timeline-date">Day 4</div>
-        <div class="timeline-content">
-            <h4>Detail Page</h4>
-            <p>Detail 페이지 구현. Hyper-Sensitive 2-Stage Zoom 완성</p>
-        </div>
-        </div>
-        <div class="timeline-item">
-        <div class="timeline-date">Day 5</div>
-        <div class="timeline-content">
-            <h4>UI Polish</h4>
-            <p>Hybrid Typography + Glassmorphism + Micro-interactions 완성</p>
-        </div>
-        </div>
-        <div class="timeline-item">
-        <div class="timeline-date">Day 6</div>
-        <div class="timeline-content">
-            <h4>최종 배포</h4>
-            <p>최종 테스트 + GitHub Pages 배포 + README 작성</p>
-        </div>
-        </div>
-    </div>
-    </div>
-</div>
+                <!-- Issue 2 -->
+                <div class="ts-box">
+                    <div class="ts-title">🔴 2. CSS Import Order</div>
+                    <div style="margin: 0.5rem 0; font-size: 0.85rem; color:#cbd5e1;">컴포넌트 로드 후 스타일 적용 실패</div>
+                    <div style="background: rgba(0,0,0,0.3); padding: 0.5rem; border-radius: 6px; font-family: monospace; font-size: 0.8rem; color: #f87171;">
+                        const Comp = () => {...}<br>import './Comp.css'; // ❌
+                    </div>
+                    <div class="ts-solve" style="margin-top: 0.5rem; font-size: 1rem;">🟢 Solution</div>
+                    <div style="background: rgba(0,0,0,0.3); padding: 0.5rem; border-radius: 6px; font-family: monospace; font-size: 0.8rem; color: #4ade80;">
+                        import './Comp.css'; // ✅<br>const Comp = () => {...}
+                    </div>
+                    <div style="margin-top:0.3rem; font-size: 0.8rem;">Import Hoisting으로 우선순위 확보</div>
+                </div>
 
-<!-- Slide 9: Achievements & Performance -->
-<div class="slide">
-    <div class="slide-content">
-    <h2 class="section-title">Achievements</h2>
-    <div class="achievements">
-        <div class="achievement-card">
-        <div class="achievement-number">27</div>
-        <div class="achievement-label">Portfolio Items</div>
-        </div>
-        <div class="achievement-card">
-        <div class="achievement-number">6</div>
-        <div class="achievement-label">Days Built</div>
-        </div>
-        <div class="achievement-card">
-        <div class="achievement-number">100+</div>
-        <div class="achievement-label">Images Assets</div>
-        </div>
-    </div>
+                <!-- Issue 3 -->
+                <div class="ts-box">
+                    <div class="ts-title">🔴 3. Redux Infinite Render</div>
+                    <div style="margin: 0.5rem 0; font-size: 0.85rem; color:#cbd5e1;">filter()가 매번 새 배열을 반환</div>
+                    <div style="background: rgba(0,0,0,0.3); padding: 0.5rem; border-radius: 6px; font-family: monospace; font-size: 0.8rem; color: #f87171;">
+                        useSelector(state => state.items.filter(...))
+                    </div>
+                    <div class="ts-solve" style="margin-top: 0.5rem; font-size: 1rem;">🟢 Solution</div>
+                    <div style="background: rgba(0,0,0,0.3); padding: 0.5rem; border-radius: 6px; font-family: monospace; font-size: 0.8rem; color: #4ade80;">
+                        createSelector(items, filters, (i, f) => ... )
+                    </div>
+                    <div style="margin-top:0.3rem; font-size: 0.8rem;">Reselect 메모이제이션으로 참조 유지</div>
+                </div>
 
-    <div style="background: #ecfdf5; border-left: 5px solid var(--success); padding: 24px; border-radius: 12px; margin-top: 48px;">
-        <h3 style="color: var(--success); margin-bottom: 16px;">Performance Highlights</h3>
-        <ul style="list-style: none; color: #166534;">
-        <li>✅ 5개 핵심 React Hook 완벽 구현</li>
-        <li>✅ Redux DevTools 실시간 디버깅</li>
-        <li>✅ Lighthouse 95+ 점수 달성</li>
-        <li>✅ 모바일 우선 반응형 완성</li>
-        <li>✅ SPA 라우팅 100% 구현</li>
-        </ul>
-    </div>
-    </div>
-</div>
+                <!-- Issue 4 -->
+                <div class="ts-box">
+                    <div class="ts-title">🔴 4. Vite HMR Frozen</div>
+                    <div style="margin: 0.5rem 0; font-size: 0.85rem; color:#cbd5e1;">Windows 환경 파일 감시 충돌</div>
+                    <div style="background: rgba(0,0,0,0.3); padding: 0.5rem; border-radius: 6px; font-family: monospace; font-size: 0.8rem; color: #f87171;">
+                         // No Config (Default)
+                    </div>
+                    <div class="ts-solve" style="margin-top: 0.5rem; font-size: 1rem;">🟢 Solution</div>
+                    <div style="background: rgba(0,0,0,0.3); padding: 0.5rem; border-radius: 6px; font-family: monospace; font-size: 0.8rem; color: #4ade80;">
+                        server: { hmr: { overlay: false }, watch: {...} }
+                    </div>
+                    <div style="margin-top:0.3rem; font-size: 0.8rem;">Config 명시적 지정으로 안정화</div>
+                </div>
 
-<!-- Slide 10: Technical Deep Dive -->
-<div class="slide">
-    <div class="slide-content">
-    <h2 class="section-title">Technical Deep Dive</h2>
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px;">
-        <div class="overview-card">
-        <h3>React Hooks</h3>
-        <p><strong>useState:</strong> 로컬 상태 관리<br><strong>useEffect:</strong> 사이드 이펙트<br><strong>useMemo:</strong> 메모이제이션<br><strong>useCallback:</strong> 콜백 안정화<br><strong>useContext:</strong> 전역 상태</p>
+            </div>
         </div>
-        <div class="overview-card">
-        <h3>Redux Toolkit</h3>
-        <p><strong>Slices:</strong> portfolio, theme<br><strong>Actions:</strong> CRUD<br><strong>Selectors:</strong> 상태 조회<br><strong>Middleware:</strong> 로깅<br><strong>DevTools:</strong> 시간 여행</p>
-        </div>
-        <div class="overview-card">
-        <h3>CSS Architecture</h3>
-        <p><strong>Grid/Flexbox:</strong> 레이아웃<br><strong>CSS Variables:</strong> 테마링<br><strong>Media Queries:</strong> 반응형<br><strong>Animations:</strong> 부드러움<br><strong>Backdrop Filter:</strong> Glass</p>
-        </div>
-        <div class="overview-card">
-        <h3>Performance</h3>
-        <p><strong>Code Splitting</strong><br><strong>Memoization</strong><br><strong>Image Optimization</strong><br><strong>Bundle Size:</strong> Vite<br><strong>Lazy Loading</strong></p>
-        </div>
-    </div>
-    </div>
-</div>
 
-<!-- Slide 11: Future Features -->
-<div class="slide">
-    <div class="slide-content">
-    <h2 class="section-title">Future Enhancements</h2>
-    <div class="features-list">
-        <div class="feature-item">
-        <h4>Backend API</h4>
-        <p>Node.js/Express API 연동, MongoDB 저장소</p>
+        <!-- 5. TIMELINE -->
+        <div class="slide">
+            <div class="slide-header">
+                <h2 class="slide-title">Development Log</h2>
+                <p class="slide-subtitle">개발 과정 7단계</p>
+            </div>
+            <!-- 5. TIMELINE (7 Phases) -->
+            <div class="grid cols-4" style="font-size: 0.8rem; gap: 1rem;">
+                <div class="card" style="border-top: 3px solid #60a5fa;">
+                    <div class="card-head" style="font-size:1rem;">Phase 1</div>
+                    <div class="card-body">
+                        <strong>Init & Basics</strong><br>
+                        Vite 템플릿 세팅<br>Redux Store 구성<br>Router 설계<br>폴더 구조 정의
+                    </div>
+                </div>
+                <div class="card" style="border-top: 3px solid #3b82f6;">
+                    <div class="card-head" style="font-size:1rem;">Phase 2</div>
+                    <div class="card-body">
+                        <strong>Layout & Theme</strong><br>
+                        Main Layout 구현<br>CSS Variables<br>Theme Context<br>Dark/Light Mode
+                    </div>
+                </div>
+                <div class="card" style="border-top: 3px solid #2563eb;">
+                    <div class="card-head" style="font-size:1rem;">Phase 3</div>
+                    <div class="card-body">
+                        <strong>Core Components</strong><br>
+                        Portfolio Card/List<br>Hero Section<br>Filter & Search UI<br>Grid Layout
+                    </div>
+                </div>
+                <div class="card" style="border-top: 3px solid #1d4ed8;">
+                    <div class="card-head" style="font-size:1rem;">Phase 4</div>
+                    <div class="card-body">
+                        <strong>Detail & Zoom</strong><br>
+                        Dynamic Routing<br>2-Stage Zoom<br>Image Gallery<br>useParams
+                    </div>
+                </div>
+                <div class="card" style="border-top: 3px solid #1e40af;">
+                    <div class="card-head" style="font-size:1rem;">Phase 5</div>
+                    <div class="card-body">
+                        <strong>UI/UX Polish</strong><br>
+                        Hybrid Typography<br>Glassmorphism<br>Hover Effects<br>Micro Interactions
+                    </div>
+                </div>
+                <div class="card" style="border-top: 3px solid #1e3a8a;">
+                    <div class="card-head" style="font-size:1rem;">Phase 6</div>
+                    <div class="card-body">
+                        <strong>Responsive</strong><br>
+                        Media Queries<br>Accessiblity<br>Lazy Loading
+                    </div>
+                </div>
+                <div class="card" style="border-top: 3px solid #172554;">
+                    <div class="card-head" style="font-size:1rem;">Phase 7</div>
+                    <div class="card-body">
+                        <strong>Deploy</strong><br>
+                        Code Formatting<br>README 작성<br>GitHub Pages
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="feature-item">
-        <h4>Admin Dashboard</h4>
-        <p>포트폴리오 CRUD 관리, 이미지 업로드</p>
-        </div>
-        <div class="feature-item">
-        <h4>PWA Support</h4>
-        <p>Service Worker, 오프라인 지원, 푸시 알림</p>
-        </div>
-        <div class="feature-item">
-        <h4>Animation Library</h4>
-        <p>Framer Motion, GSAP 페이지 전환 애니메이션</p>
-        </div>
-        <div class="feature-item">
-        <h4>SEO Optimization</h4>
-        <p>React Helmet, SSR 준비, 메타 태그 최적화</p>
-        </div>
-        <div class="feature-item">
-        <h4>Testing Suite</h4>
-        <p>Jest + RTL, Cypress E2E, Storybook 컴포넌트</p>
-        </div>
-    </div>
-    </div>
-</div>
 
-<!-- Slide 12: Final CTA -->
-<div class="slide slide-end">
-    <div class="slide-content">
-    <h1>감사합니다!</h1>
-    <p style="margin-bottom: 60px; font-size: 20px;">
-        React 포트폴리오 프로젝트<br>발표를 마치겠습니다.
-    </p>
-    
-    <div style="background: white; padding: 48px; border-radius: 16px; border: 1px solid var(--border); margin-bottom: 48px; text-align: left;">
-        <h3 style="color: var(--primary); margin-bottom: 24px; text-align: center;">Contact Information</h3>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; font-size: 15px;">
-        <p><strong>Email:</strong> hayohio@gmail.com</p>
-        <p><strong>GitHub:</strong> github.com/hayohio-bit</p>
-        <p><strong>Portfolio:</strong> hayohio-bit.github.io/hayohio-portfolio</p>
+        <!-- 6. GROWTH -->
+        <div class="slide">
+            <div class="slide-header">
+                <h2 class="slide-title">Outcomes & Growth</h2>
+                <p class="slide-subtitle">프로젝트를 통해 얻은 것</p>
+            </div>
+            <!-- 6. GROWTH (UPDATED) -->
+            <div class="grid cols-2" style="font-size: 0.9rem; align-items: start; gap: 1.5rem;">
+                <!-- Left Column -->
+                <div style="display:flex; flex-direction:column; gap:1.5rem;">
+                    <div class="card">
+                        <div class="card-head" style="font-size:1.2rem;">⚛️ React Ecosystem</div>
+                        <div class="card-body">
+                            - <strong>Hooks</strong>: 의존성 배열 원리 및 클로저 문제 해결<br>
+                            - <strong>Custom Hook</strong>: 로직 재사용성 및 구조화<br>
+                            - <strong>Performance</strong>: memo, usageMemo 적절한 사용
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-head" style="font-size:1.2rem;">🏗 State Architecture</div>
+                        <div class="card-body">
+                            - <strong>Redux vs Local</strong>: 전역/지역 상태의 명확한 구분<br>
+                            - <strong>Selector Pattern</strong>: 상태 조회 최적화<br>
+                            - <strong>Slice Design</strong>: 도메인별 상태 분리
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column -->
+                <div style="display:flex; flex-direction:column; gap:1.5rem;">
+                    <div class="card">
+                        <div class="card-head" style="font-size:1.2rem;">🎨 Styling Philosophy</div>
+                        <div class="card-body">
+                            - <strong>CSS Variables</strong>: 동적 테마 유연성 확보<br>
+                            - <strong>Modern Layout</strong>: Grid/Flexbox 반응형 설계<br>
+                            - <strong>Zero Runtime</strong>: 순수 CSS로 오버헤드 최소화
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-head" style="font-size:1.2rem;">🛣 SPA Strategy</div>
+                        <div class="card-body">
+                            - <strong>URL Sync</strong>: URL ↔ UI 상태 동기화<br>
+                            - <strong>History</strong>: 브라우저 네비게이션 완벽 지원<br>
+                            - <strong>Deep Linking</strong>: 직접 접근 가능한 경로 설계
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+
+        <!-- 7. OUTRO -->
+        <div class="slide">
+            <h2 class="slide-title" style="font-size: 5rem;">Thank You</h2>
+            <p class="slide-subtitle" style="max-width: 600px; margin: 2rem auto; line-height: 1.6;">
+                단순한 구현을 넘어, <strong>가치 있는 사용자 경험</strong>을 설계합니다.<br>
+                끊임없이 고민하고 성장하는 개발자가 되겠습니다.
+            </p>
+            
+            <div style="display: flex; gap: 2rem; margin-top: 3rem; flex-wrap: wrap; justify-content: center;">
+                <a href="https://hayohio-bit.github.io/hayohio-portfolio/" target="_blank" class="card" style="padding: 1rem 2rem; border-radius: 50px; text-decoration: none; color: inherit; transition: transform 0.2s;">
+                    🌐 Live Demo
+                </a>
+                <a href="https://github.com/hayohio-bit/hayohio-portfolio" target="_blank" class="card" style="padding: 1rem 2rem; border-radius: 50px; text-decoration: none; color: inherit; transition: transform 0.2s;">
+                    🔗 GitHub Repo
+                </a>
+            </div>
+        </div>
+
     </div>
 
-    <div class="cta-buttons">
-        <button class="btn btn-primary" onclick="scrollToSlide(0)">
-        ⬆️ Back to Top
-        </button>
-        <button class="btn btn-secondary" onclick="window.open('https://github.com/hayohio-bit/hayohio-portfolio', '_blank')">
-        📂 View GitHub
-        </button>
+    <!-- UI -->
+    <div class="nav-bar">
+        <button onclick="prevSlide()" style="background:none; border:none; color:#fff; cursor:pointer;">◀</button>
+        <!-- Dots generated by JS -->
+        <span class="pg-num" id="pgNum">1 / 8</span>
+        <button onclick="nextSlide()" style="background:none; border:none; color:#fff; cursor:pointer;">▶</button>
     </div>
-    </div>
-</div>
 
-<!-- Scroll Indicator -->
-<div class="scroll-indicator" onclick="scrollToSlide(1)">↓</div>
+    <script>
+        let current = 0;
+        const slides = document.querySelectorAll('.slide');
+        const total = slides.length;
+        const navBar = document.querySelector('.nav-bar');
+        const pgNum = document.getElementById('pgNum');
 
-<!-- Enhanced JavaScript - 스무스 스크롤 및 키보드 네비게이션 -->
-<script>
-    // 슬라이드 스크롤 함수 - scrollIntoView의 smooth behavior 활용
-    function scrollToSlide(index) {
-    const slides = document.querySelectorAll('.slide');
-    if (slides[index]) {
-        slides[index].scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'start'
+        // Generate Dots
+        slides.forEach((_, i) => {
+            const dot = document.createElement('div');
+            dot.className = `nav-dot ${i===0?'active':''}`;
+            dot.onclick = () => goTo(i);
+            navBar.insertBefore(dot, pgNum);
         });
-    }
-    }
+        const dots = document.querySelectorAll('.nav-dot');
 
-    // 페이지 로드시 최상단으로 - 사용자 경험 개선
-    window.addEventListener('load', () => {
-    window.scrollTo(0, 0);
-    });
-
-    // 키보드 네비게이션 - 접근성 향상 (Arrow Keys)
-    document.addEventListener('keydown', (e) => {
-    const slides = document.querySelectorAll('.slide');
-    const currentSlide = Math.round(window.scrollY / window.innerHeight);
-    
-    if (e.key === 'ArrowDown' || e.key === 'PageDown') {
-        e.preventDefault();
-        if (currentSlide < slides.length - 1) {
-        slides[currentSlide + 1].scrollIntoView({ behavior: 'smooth' });
+        function update() {
+            slides.forEach((s, i) => s.classList.toggle('active', i === current));
+            dots.forEach((d, i) => d.classList.toggle('active', i === current));
+            pgNum.textContent = `${current + 1} / ${total}`;
         }
-    } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {
-        e.preventDefault();
-        if (currentSlide > 0) {
-        slides[currentSlide - 1].scrollIntoView({ behavior: 'smooth' });
-        }
-    }
-    });
 
-    // 스크롤 진행률 표시 (선택사항)
-    window.addEventListener('scroll', () => {
-    const scrollTop = window.scrollY;
-    const docHeight = document.body.scrollHeight - window.innerHeight;
-    const scrollPercent = (scrollTop / docHeight) * 100;
-    // 프로그레스 바 등에 활용 가능
-    });
-</script>
+        function goTo(n) { current = n; update(); }
+        function nextSlide() { current = (current + 1) % total; update(); }
+        function prevSlide() { current = (current - 1 + total) % total; update(); }
+
+        // Keyboard
+        document.addEventListener('keydown', e => {
+            if(['ArrowRight', ' ', 'Enter'].includes(e.key)) nextSlide();
+            if(['ArrowLeft'].includes(e.key)) prevSlide();
+        });
+        
+        // Animation Helper
+        // @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+        const styleSheet = document.createElement("style");
+        styleSheet.innerText = `@keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }`;
+        document.head.appendChild(styleSheet);
+
+        // Initialize Animation
+        setTimeout(() => {
+            update();
+        }, 100);
+    </script>
 </body>
 </html>
