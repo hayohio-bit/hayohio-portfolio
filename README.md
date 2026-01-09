@@ -56,43 +56,7 @@
 - **JSON** (포트폴리오 데이터 저장)
 
 ### 배포
-- GitHub Pages 또는 Vercel
-
----
-
-## 🚀 실행 방법
-
-### 설치 및 실행
-
-```bash
-# 리포지토리 클론
-git clone https://github.com/hayohio-bit/hayohio-portfolio.git
-
-# 프로젝트 폴더 이동
-cd hayohio-portfolio
-
-# 패키지 설치
-npm install
-# 또는
-yarn install
-
-# 개발 서버 실행
-npm run dev
-# 또는
-yarn dev
-
-# 브라우저에서 http://localhost:5173 접속
-```
-
-### 빌드 및 배포
-
-```bash
-# 프로덕션 빌드
-npm run build
-
-# 빌드 결과 미리보기
-npm run preview
-```
+- GitHub Pages
 
 ---
 
@@ -105,8 +69,6 @@ hayohio-portfolio/
 │   ├── assets/
 │   │   └── images/                    # 포트폴리오 이미지
 │   │       └── [프로젝트 이미지들]
-│   ├── css/
-│   │   └── animate.css                # 애니메이션 스타일
 │   └── images/
 │       └── [공통 이미지]
 │
@@ -190,11 +152,7 @@ hayohio-portfolio/
 │   │
 │   └── utils/                         # 유틸리티 함수
 │
-├── .eslintrc.cjs                      # ESLint 설정
-├── .gitignore
 ├── package.json
-├── tsconfig.json                      # TypeScript 설정 (선택)
-├── tsconfig.node.json
 ├── vite.config.js                     # Vite 설정
 └── README.md
 ```
@@ -463,37 +421,11 @@ function Work() {
 
 ---
 
-## 🔜 향후 개선 계획
-
-### 기능 확장
-- [ ] 백엔드 API 연동 (Node.js/Express)
-- [ ] 데이터베이스 저장 (MongoDB/PostgreSQL)
-- [ ] 관리자 페이지 (작업물 CRUD)
-- [ ] 댓글 및 평가 기능
-- [ ] 소셜 공유 기능
-
-### 사용자 경험 개선
-- [ ] 애니메이션 효과 (Framer Motion)
-- [ ] 페이지 전환 애니메이션
-- [ ] 무한 스크롤 또는 페이지네이션
-- [ ] 고급 검색 및 필터
-- [ ] 즐겨찾기/위시리스트 기능
-
-### 기술 개선
-- [ ] TypeScript 전환
-- [ ] Storybook 도입 (컴포넌트 문서화)
-- [ ] 단위 테스트 (Jest, React Testing Library)
-- [ ] E2E 테스트 (Cypress)
-- [ ] 접근성 개선 (WCAG 준수)
-- [ ] SEO 최적화 (메타 태그, 구조화된 데이터)
-
----
-
 ## 📞 문의 및 연락
 
 - **GitHub**: [@hayohio-bit](https://github.com/hayohio-bit)
-- **Email**: hayohio@gmail.com
-- **포트폴리오**: [Live Demo URL]
+- **Email**: [hayohio@gmail.com](mailto:hayohio@gmail.com)
+- **포트폴리오**: [Live Demo URL](https://hayohio-bit.github.io/hayohio-portfolio/)
 
 ---
 
@@ -501,7 +433,7 @@ function Work() {
 
 MIT License
 
-Copyright (c) 2025 hayohio-bit
+Copyright (c) 2025 hayohio
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

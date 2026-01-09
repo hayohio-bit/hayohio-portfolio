@@ -1,9 +1,6 @@
 hayohio-portfolio
-├── .gitlab-ci.yml
 ├── index.html
-├── portfolio_presentation.html
 ├── public
-│   ├── 404.html
 │   ├── assets
 │   │   └── images
 │   │       ├── 100.jpg
@@ -39,7 +36,6 @@ hayohio-portfolio
 │   │       ├── 507-01.png
 │   │       ├── 508-01.png
 │   │       ├── 601-01.png
-│   │       ├── 9999.jpg
 │   │       └── thumb
 │   │           ├── 101-thumb.png
 │   │           ├── 102-thumb.png
@@ -118,8 +114,6 @@ hayohio-portfolio
 │   │   ├── slices
 │   │   │   └── portfolioSlice.js
 │   │   └── store.js
-│   ├── styles
-│   │   └── animate.css
 │   ├── theme
 │   │   ├── getInitialTheme.js
 │   │   ├── index.js
