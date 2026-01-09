@@ -10,12 +10,6 @@ export default function Contact() {
       link: 'mailto:hayohio@gmail.com'
     },
     {
-      icon: '📱',
-      label: 'Phone',
-      value: '010-6439-5201',
-      link: 'tel:010-6439-5201'
-    },
-    {
       icon: '💼',
       label: 'GitHub',
       value: 'github.com/hayohio',
