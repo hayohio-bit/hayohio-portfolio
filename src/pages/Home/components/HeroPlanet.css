@@ -3,172 +3,256 @@
 
     /* ===== 메인 컨테이너 ===== */
     .planet-orbit-wrapper {
-    position: relative;
-    width: 280px; /* 궤도 확보를 위해 소폭 확대 */
-    height: 280px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    perspective: 1000px;
-    filter: drop-shadow(0 12px 32px rgba(15, 23, 42, 0.15));
-    overflow: visible;
-    animation: planet-float 6s ease-in-out infinite; /* 전체 플로팅 효과 추가 */
+        position: relative;
+        width: 280px;
+        /* 궤도 확보를 위해 소폭 확대 */
+        height: 280px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        perspective: 1000px;
+        filter: drop-shadow(0 12px 32px rgba(15, 23, 42, 0.15));
+        overflow: visible;
+        animation: planet-float 6s ease-in-out infinite;
+        /* 전체 플로팅 효과 추가 */
     }
 
     /* ===== 행성 코어 ===== */
     .planet-core {
-    width: 160px;
-    height: 160px;
-    border-radius: 50%;
-    animation: planet-spin 8s linear infinite; /* 배지 속도와 동기화 (8초) */
-    animation-play-state: paused;
-    box-shadow: 
-        0 20px 40px rgba(0,0,0,0.35),
-        0 0 0 1px rgba(255,255,255,0.25),
-        inset 0 0 30px rgba(255,255,255,0.15),
-        inset 20px 20px 40px rgba(0,0,0,0.25);
-    background: 
-        radial-gradient(circle at 35% 35%, rgba(255,255,255,0.9) 0%, transparent 55%);
-    transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.6s ease;
+        width: 160px;
+        height: 160px;
+        border-radius: 50%;
+        animation: planet-spin 8s linear infinite;
+        /* 배지 속도와 동기화 (8초) */
+        animation-play-state: paused;
+        box-shadow:
+            0 20px 40px rgba(0, 0, 0, 0.35),
+            0 0 0 1px rgba(255, 255, 255, 0.25),
+            inset 0 0 30px rgba(255, 255, 255, 0.15),
+            inset 20px 20px 40px rgba(0, 0, 0, 0.25);
+        background:
+            radial-gradient(circle at 35% 35%, rgba(255, 255, 255, 0.9) 0%, transparent 55%);
+        transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.6s ease;
     }
 
     .planet-core.is-spinning {
-    animation-play-state: running; /* 호버 시 회전 시작 */
+        animation-play-state: running;
+        /* 호버 시 회전 시작 */
     }
 
     /* 라이트 모드 행성 */
-    [data-theme="light"] .planet-core { 
-    background: /* 4개 그라데이션 겹침 */
-        radial-gradient(circle at 25% 45%, /* 밝은 영역 */
-        #0284c7 0%, #0ea5e9 30%, #38bdf8 60%,
-        #60a5fa 90%, #93c5fd 100%),
-        radial-gradient(circle at 80% 35%, #ffffff 0%, transparent 40%), /* 하이라이트 */
-        radial-gradient(circle at 40% 60%, #0369a1 0%, transparent 40%), /* 어두운 부분 */
-        radial-gradient(circle at 70% 70%, #0c4a6e 0%, transparent 40%); /* 그림자 */
-    box-shadow:
-        0 0 20px rgba(6, 182, 212, 0.6), /* 외부 빛 1 */
-        0 0 36px rgba(14, 165, 233, 0.5), /* 외부 빛 2 */
-        inset 0 4px 14px rgba(255, 255, 255, 0.4); /* 내부 빛 */
+    [data-theme="light"] .planet-core {
+        background:
+            /* 4개 그라데이션 겹침 */
+            radial-gradient(circle at 25% 45%,
+                /* 밝은 영역 */
+                #0284c7 0%, #0ea5e9 30%, #38bdf8 60%,
+                #60a5fa 90%, #93c5fd 100%),
+            radial-gradient(circle at 80% 35%, #ffffff 0%, transparent 40%),
+            /* 하이라이트 */
+            radial-gradient(circle at 40% 60%, #0369a1 0%, transparent 40%),
+            /* 어두운 부분 */
+            radial-gradient(circle at 70% 70%, #0c4a6e 0%, transparent 40%);
+        /* 그림자 */
+        box-shadow:
+            0 0 20px rgba(6, 182, 212, 0.6),
+            /* 외부 빛 1 */
+            0 0 36px rgba(14, 165, 233, 0.5),
+            /* 외부 빛 2 */
+            inset 0 4px 14px rgba(255, 255, 255, 0.4);
+        /* 내부 빛 */
     }
 
     /* 다크 모드 행성 */
-    [data-theme="dark"] .planet-core { 
-    background:
-        radial-gradient(circle at 20% 40%,
-        #9333ea 0%, #6366f1 30%, #3b82f6 60%,
-        #0ea5e9 90%, #0f172a 100%),
-        radial-gradient(circle at 75% 30%, #ec4899 0%, transparent 40%),
-        radial-gradient(circle at 40% 55%, #1e293b 0%, transparent 40%);
-    box-shadow:
-        0 0 24px rgba(168, 85, 247, 0.5),
-        0 0 40px rgba(99, 102, 241, 0.4),
-        inset 0 4px 16px rgba(255, 255, 255, 0.1);
+    [data-theme="dark"] .planet-core {
+        background:
+            radial-gradient(circle at 20% 40%,
+                #9333ea 0%, #6366f1 30%, #3b82f6 60%,
+                #0ea5e9 90%, #0f172a 100%),
+            radial-gradient(circle at 75% 30%, #ec4899 0%, transparent 40%),
+            radial-gradient(circle at 40% 55%, #1e293b 0%, transparent 40%);
+        box-shadow:
+            0 0 24px rgba(168, 85, 247, 0.5),
+            0 0 40px rgba(99, 102, 241, 0.4),
+            inset 0 4px 16px rgba(255, 255, 255, 0.1);
     }
 
     /* ===== 행성 고리 ===== */
-    .planet-ring { 
-    position: absolute;
-    width: 350px;
-    height: 350px;
-    border-radius: 50%;
-    pointer-events: none;
-    transition: filter 0.3s ease; /* 부드러운 전환 */
-    transform: rotateX(80deg) rotateY(7deg) rotateZ(0deg);
-}
+    .planet-ring {
+        position: absolute;
+        width: 350px;
+        height: 350px;
+        border-radius: 50%;
+        pointer-events: none;
+        transition: filter 0.3s ease;
+        /* 부드러운 전환 */
+        transform: rotateX(80deg) rotateY(7deg) rotateZ(0deg);
+    }
 
     /* 라이트 모드 고리 */
     [data-theme="light"] .planet-ring {
-    background: /* 2개 그라데이션 */
-        radial-gradient(circle at 50% 50%,
-        transparent 25%,
-        rgba(6, 182, 212, 0.55) 40%,
-        rgba(14, 165, 233, 0.45) 50%,
-        rgba(52, 189, 248, 0.35) 60%,
-        transparent 70%),
-        radial-gradient(circle at 50% 50%,
-        transparent 65%,
-        rgba(125, 211, 252, 0.4) 70%,
-        rgba(239, 246, 255, 0.25) 78%,
-        transparent 85%);
-    filter: brightness(1.4) contrast(1.4) saturate(5.2); /* 선명하게 */
+        background:
+            /* 2개 그라데이션 */
+            radial-gradient(circle at 50% 50%,
+                transparent 25%,
+                rgba(6, 182, 212, 0.55) 40%,
+                rgba(14, 165, 233, 0.45) 50%,
+                rgba(52, 189, 248, 0.35) 60%,
+                transparent 70%),
+            radial-gradient(circle at 50% 50%,
+                transparent 65%,
+                rgba(125, 211, 252, 0.4) 70%,
+                rgba(239, 246, 255, 0.25) 78%,
+                transparent 85%);
+        filter: brightness(1.4) contrast(1.4) saturate(5.2);
+        /* 선명하게 */
     }
 
     /* 다크 모드 고리 */
     [data-theme="dark"] .planet-ring {
-    background:
-        radial-gradient(circle at 50% 50%,
-        transparent 30%,
-        rgba(99, 102, 241, 0.25) 45%,
-        rgba(59, 130, 246, 0.22) 55%,
-        rgba(14, 165, 233, 0.18) 65%,
-        transparent 75%),
-        radial-gradient(circle at 50% 50%,
-        transparent 70%,
-        rgba(148, 163, 184, 0.2) 75%,
-        transparent 82%);
-    filter: brightness(1.25) contrast(2.2);
+        background:
+            radial-gradient(circle at 50% 50%,
+                transparent 30%,
+                rgba(99, 102, 241, 0.25) 45%,
+                rgba(59, 130, 246, 0.22) 55%,
+                rgba(14, 165, 233, 0.18) 65%,
+                transparent 75%),
+            radial-gradient(circle at 50% 50%,
+                transparent 70%,
+                rgba(148, 163, 184, 0.2) 75%,
+                transparent 82%);
+        filter: brightness(1.25) contrast(2.2);
     }
 
     /* =====  배지  ===== */
-    .planet-badge { 
-    position: absolute; /* 컨테이너 기준 위치 */
-    padding: 0.45rem 1.4em;
-    border-radius: 999px;
-    font-size: 0.8rem;
-    font-weight: 700;
-    white-space: nowrap;
-    pointer-events: none; /* ✅ 마우스 관통 */
-    will-change: transform; /* ✅ GPU 가속 */
+    .planet-badge {
+        position: absolute;
+        /* 컨테이너 기준 위치 */
+        padding: 0.45rem 1.4em;
+        border-radius: 999px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        white-space: nowrap;
+        pointer-events: none;
+        /* ✅ 마우스 관통 */
+        will-change: transform;
+        /* ✅ GPU 가속 */
     }
 
     /* 라이트 모드 배지 */
-    [data-theme="light"] .planet-badge { /* 🟢 배경색만 */
-    color: var(--text-primary);
-    background: rgba(255, 255, 255, 0.95);
-    border: 1px solid rgba(6, 182, 212, 0.3);
-    backdrop-filter: blur(4px);
-    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.1);
+    [data-theme="light"] .planet-badge {
+        /* 🟢 배경색만 */
+        color: var(--text-primary);
+        background: rgba(255, 255, 255, 0.95);
+        border: 1px solid rgba(6, 182, 212, 0.3);
+        backdrop-filter: blur(4px);
+        box-shadow: 0 8px 20px rgba(15, 23, 42, 0.1);
     }
 
     /* 다크 모드 배지 */
-    [data-theme="dark"] .planet-badge { /* 🟢 배경색만 */
-    color: rgba(255, 255, 255, 0.95);
-    background: rgba(15, 23, 42, 0.95);
-    border: 1px solid rgba(99, 102, 241, 0.3);
-    backdrop-filter: blur(4px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    [data-theme="dark"] .planet-badge {
+        /* 🟢 배경색만 */
+        color: rgba(255, 255, 255, 0.95);
+        background: rgba(15, 23, 42, 0.95);
+        border: 1px solid rgba(99, 102, 241, 0.3);
+        backdrop-filter: blur(4px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
     }
 
-    /* ===== 호버 효과 ===== */
+    /* ===== 배지 궤도 애니메이션 ===== */
+    .planet-badge-experience {
+        --orbit-radius: 105px;
+        --angle-offset: 20deg;
+        animation: orbit-experience 10s linear infinite;
+        animation-play-state: paused;
+    }
+
+    .planet-badge-skills {
+        --orbit-radius: 135px;
+        --angle-offset: 200deg;
+        animation: orbit-skills 10s linear infinite;
+        animation-play-state: paused;
+    }
+
+    .planet-orbit-wrapper:hover .planet-badge {
+        animation-play-state: running;
+    }
+
+    @keyframes orbit-experience {
+        from {
+            transform: rotate(var(--angle-offset)) translateX(var(--orbit-radius)) rotate(calc(-1 * var(--angle-offset)));
+        }
+
+        to {
+            transform: rotate(calc(var(--angle-offset) + 360deg)) translateX(var(--orbit-radius)) rotate(calc(-1 * (var(--angle-offset) + 360deg)));
+        }
+    }
+
+    @keyframes orbit-skills {
+        from {
+            transform: rotate(var(--angle-offset)) translateX(var(--orbit-radius)) rotate(calc(-1 * var(--angle-offset)));
+        }
+
+        to {
+            transform: rotate(calc(var(--angle-offset) + 360deg)) translateX(var(--orbit-radius)) rotate(calc(-1 * (var(--angle-offset) + 360deg)));
+        }
+    }
+
     .planet-orbit-wrapper:hover .planet-core {
-    transform: rotateX(10deg) rotateY(15deg); /* scale(1.05) 제거하여 고정 유지 */
-    filter: brightness(1.1);
+        animation-play-state: running;
+        /* 기존 방식 유지 */
     }
 
     .planet-orbit-wrapper:hover .planet-ring {
-    transform: rotateX(80deg) rotateY(7deg); /* 베이스 각도와 동일하게 고정하여 시각적 확장 방지 */
-    filter: brightness(1.2) saturate(1.5);
+        transform: rotateX(80deg) rotateY(7deg);
+        /* 베이스 각도와 동일하게 고정하여 시각적 확장 방지 */
+        filter: brightness(1.2) saturate(1.5);
     }
 
     @keyframes planet-spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(-360deg); } /* 시계 반대 방향으로 회전 시 가독성 더 좋음 */
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(-360deg);
+        }
+
+        /* 시계 반대 방향으로 회전 시 가독성 더 좋음 */
     }
 
     @keyframes planet-float {
-        0%, 100% { transform: translateY(0); }
-        50% { transform: translateY(-15px); }
+
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-15px);
+        }
     }
 
-        /* 배지에서 animation 활성화 */
-        .planet-badge {
+    /* 배지에서 animation 활성화 */
+    .planet-badge {
         will-change: transform;
     }
 
     /* ===== 모바일 ===== */
     @media (max-width: 640px) {
-    .planet-orbit-wrapper { width: 200px; height: 200px; }
-    [data-theme="light"] .planet-core { width: 130px; height: 130px; }
-    [data-theme="dark"] .planet-core { width: 130px; height: 130px; }
+        .planet-orbit-wrapper {
+            width: 200px;
+            height: 200px;
+        }
+
+        [data-theme="light"] .planet-core {
+            width: 130px;
+            height: 130px;
+        }
+
+        [data-theme="dark"] .planet-core {
+            width: 130px;
+            height: 130px;
+        }
     }
