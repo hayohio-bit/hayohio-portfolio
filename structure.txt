@@ -1,6 +1,13 @@
-hayohio-portfolio
+react_project_20251217
+├── .env
+├── .gitlab-ci.yml
 ├── index.html
+├── portfolio_presentation.html
+├── portfolio_presentation_PDF.pdf
+├── portfolio_presentation_PPT.pptx
+├── PROJECT_GUIDE.md
 ├── public
+│   ├── 404.html
 │   ├── assets
 │   │   └── images
 │   │       ├── 100.jpg
@@ -31,11 +38,12 @@ hayohio-portfolio
 │   │       ├── 503-01.png
 │   │       ├── 504-01.png
 │   │       ├── 505-01.png
-│   │       ├── 506-01.PNG
-│   │       ├── 506-02.PNG
+│   │       ├── 506-01.png
+│   │       ├── 506-02.png
 │   │       ├── 507-01.png
 │   │       ├── 508-01.png
 │   │       ├── 601-01.png
+│   │       ├── 9999.jpg
 │   │       └── thumb
 │   │           ├── 101-thumb.png
 │   │           ├── 102-thumb.png
@@ -82,7 +90,6 @@ hayohio-portfolio
 │   │       └── ScrollToTop.jsx
 │   ├── data
 │   │   ├── portfolioData.json
-│   │   ├── projects.json
 │   │   └── projectUtils.js
 │   ├── index.css
 │   ├── main.jsx
@@ -114,6 +121,8 @@ hayohio-portfolio
 │   │   ├── slices
 │   │   │   └── portfolioSlice.js
 │   │   └── store.js
+│   ├── styles
+│   │   └── animate.css
 │   ├── theme
 │   │   ├── getInitialTheme.js
 │   │   ├── index.js

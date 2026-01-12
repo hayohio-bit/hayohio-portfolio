@@ -1,10 +1,11 @@
 .work-section {
-    padding: var(--space-4xl) var(--space-lg);
+    padding: var(--space-3xl) var(--space-lg) var(--space-4xl);
     background: var(--bg-primary);
 }
 
 [data-theme="light"] .work-section {
-    background: var(--bg-secondary); /* 라이트 모드에서 카드 구분을 위해 배경색 조정 */
+    background: var(--bg-secondary);
+    /* 라이트 모드에서 카드 구분을 위해 배경색 조정 */
 }
 
 .work-section__inner {
@@ -113,7 +114,8 @@
 
 .work-card-title {
     font-size: var(--font-size-xl);
-    font-weight: 700; /* 38차: 가독성을 위해 두께 800 -> 700 조정 */
+    font-weight: 700;
+    /* 38차: 가독성을 위해 두께 800 -> 700 조정 */
     color: var(--text-primary);
 }
 
@@ -134,7 +136,8 @@
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-xs);
-    margin-top: auto; /* 하단 정렬 보장 */
+    margin-top: auto;
+    /* 하단 정렬 보장 */
 }
 
 .work-tag {
@@ -143,7 +146,8 @@
     color: var(--text-secondary);
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid var(--border-medium);
-    border-radius: var(--radius-full); /* 둥근 캡슐 형태 */
+    border-radius: var(--radius-full);
+    /* 둥근 캡슐 형태 */
     padding: 4px 10px;
     transition: all var(--duration-fast) var(--ease-out);
 }

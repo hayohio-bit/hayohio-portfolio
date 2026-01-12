@@ -145,7 +145,6 @@ hayohio-portfolio/
 │   │
 │   ├── data/                          # 데이터
 │   │   ├── portfolioData.json         # 포트폴리오 JSON 데이터
-│   │   ├── projects.json              # 프로젝트 정보
 │   │   └── projectUtils.js            # 데이터 유틸리티 함수
 │   │
 │   ├── hooks/                         # Custom React Hooks

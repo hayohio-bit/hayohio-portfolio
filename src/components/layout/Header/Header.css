@@ -112,6 +112,21 @@
     gap: var(--space-md);
 }
 
+.header-icon-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    color: var(--text-secondary);
+    transition: all var(--duration-fast) var(--ease-out);
+}
+
+.header-icon-link:hover {
+    color: var(--text-primary);
+    transform: translateY(-2px);
+}
+
 .theme-toggle-btn {
     width: 40px;
     height: 40px;
@@ -143,11 +158,11 @@
         top: var(--space-sm);
         padding: 0 var(--space-md);
     }
-    
+
     .header-container {
         padding: var(--space-xs) var(--space-lg);
     }
-    
+
     .header-nav {
         display: none;
     }
